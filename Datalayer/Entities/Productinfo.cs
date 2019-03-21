@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace WebstoreConsole.Entities
 {
-  public  class Productinfo
+  public class Productinfo
     {
-        public int OrderID { get; set; }
-        public int userID { get; set; }
-        public bool status { get; set; }
-        public DateTime dt { get; set; }
+        public int productinfoID { get; set; }
+        public int Brand { get; set; }
+        public bool Color { get; set; }
+        public DateTime size { get; set; }
 
 
 
