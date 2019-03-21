@@ -42,6 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Orders.cs" />
+    <Compile Include="Entities\Productinfo.cs" />
+    <Compile Include="Entities\Products.cs" />
+    <Compile Include="Entities\Shopbasket.cs" />
+    <Compile Include="Entities\Userinformation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
