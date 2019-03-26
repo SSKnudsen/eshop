@@ -10,7 +10,7 @@ namespace Datalayer
 
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Productinfo> Prodinfo { get; set; }
-        public DbSet<Products> Po { get; set; }
+        public DbSet<Products> Products { get; set; }
         public DbSet<Shopbasket> shopbaskets { get; set; }
         public DbSet<Userinformation> userinf { get; set; }
 
