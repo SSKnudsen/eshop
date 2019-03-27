@@ -8,8 +8,8 @@ namespace WebstoreConsole.Entities
 {
    public class Userinformation
     {
-        public int id { get; set; }
-        public int fullname { get; set; }
+        public Int32 id { get; set; }
+        public string fullname { get; set; }
         public DateTime dateofbirth { get; set; }
         public string Address { get; set; }
         public string gender { get; set; }

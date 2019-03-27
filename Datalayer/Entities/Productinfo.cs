@@ -9,9 +9,9 @@ namespace WebstoreConsole.Entities
   public class Productinfo
     {
         public int productinfoID { get; set; }
-        public int Brand { get; set; }
-        public bool Color { get; set; }
-        public DateTime size { get; set; }
+        public string Brand { get; set; }
+        public String Color { get; set; }
+        public string size { get; set; }
 
 
 

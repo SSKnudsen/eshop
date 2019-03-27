@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datalayer.Migrations
 {
     [DbContext(typeof(EfstoreContext))]
-    [Migration("20190326080709_Initials")]
-    partial class Initials
+    [Migration("20190327195028_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,16 +45,46 @@ namespace Datalayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Brand");
+                    b.Property<string>("Brand");
 
-                    b.Property<bool>("Color");
+                    b.Property<string>("Color");
 
-                    b.Property<DateTime>("size");
+                    b.Property<string>("size");
 
                     b.HasKey("productinfoID")
                         .HasName("productinfoID");
 
                     b.ToTable("Prodinfo");
+
+                    b.HasData(
+                        new
+                        {
+                            productinfoID = 1,
+                            Brand = " Adiddas",
+                            Color = "Black",
+                            size = "10"
+                        },
+                        new
+                        {
+                            productinfoID = 2,
+                            Brand = "Adiddas",
+                            Color = "White",
+                            size = "11"
+                        },
+                        new
+                        {
+                            productinfoID = 3,
+                            Brand = "Ecco",
+                            Color = "Brown",
+                            size = "12"
+                        },
+                        new
+                        {
+                            productinfoID = 4,
+                            Brand = "Adiddas",
+                            Color = "Black",
+                            size = "10"
+                        });
                 });
 
             modelBuilder.Entity("WebstoreConsole.Entities.Products", b =>
@@ -74,7 +104,33 @@ namespace Datalayer.Migrations
                     b.HasKey("ClothingID")
                         .HasName("ClothingID");
 
-                    b.ToTable("Po");
+                    b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ClothingID = 2,
+                            Description = "Leather shoe with antistatic know ",
+                            name = "Ecco Leather Shoe",
+                            price = 800,
+                            status = "Instock"
+                        },
+                        new
+                        {
+                            ClothingID = 3,
+                            Description = "Running Shoe with special Gel and antiShock Absorber",
+                            name = "Adiddas A2 Running",
+                            price = 1000,
+                            status = "NotInstock"
+                        },
+                        new
+                        {
+                            ClothingID = 4,
+                            Description = "Running Shoe with special Gel",
+                            name = "Asics - new Sensation",
+                            price = 2000,
+                            status = "Instock"
+                        });
                 });
 
             modelBuilder.Entity("WebstoreConsole.Entities.Shopbasket", b =>
@@ -115,7 +171,7 @@ namespace Datalayer.Migrations
 
                     b.Property<string>("email");
 
-                    b.Property<int>("fullname");
+                    b.Property<string>("fullname");
 
                     b.Property<string>("gender");
 

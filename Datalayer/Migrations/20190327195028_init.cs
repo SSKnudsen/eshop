@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Datalayer.Migrations
 {
-    public partial class Initials : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,7 +24,22 @@ namespace Datalayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Po",
+                name: "Prodinfo",
+                columns: table => new
+                {
+                    productinfoID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Brand = table.Column<string>(nullable: true),
+                    Color = table.Column<string>(nullable: true),
+                    size = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("productinfoID", x => x.productinfoID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Products",
                 columns: table => new
                 {
                     ClothingID = table.Column<int>(nullable: false)
@@ -37,21 +52,6 @@ namespace Datalayer.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("ClothingID", x => x.ClothingID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Prodinfo",
-                columns: table => new
-                {
-                    productinfoID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Brand = table.Column<int>(nullable: false),
-                    Color = table.Column<bool>(nullable: false),
-                    size = table.Column<DateTime>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("productinfoID", x => x.productinfoID);
                 });
 
             migrationBuilder.CreateTable(
@@ -77,7 +77,7 @@ namespace Datalayer.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    fullname = table.Column<int>(nullable: false),
+                    fullname = table.Column<string>(nullable: true),
                     dateofbirth = table.Column<DateTime>(nullable: false),
                     Address = table.Column<string>(nullable: true),
                     gender = table.Column<string>(nullable: true),
@@ -90,6 +90,27 @@ namespace Datalayer.Migrations
                 {
                     table.PrimaryKey("id", x => x.id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Prodinfo",
+                columns: new[] { "productinfoID", "Brand", "Color", "size" },
+                values: new object[,]
+                {
+                    { 1, " Adiddas", "Black", "10" },
+                    { 2, "Adiddas", "White", "11" },
+                    { 3, "Ecco", "Brown", "12" },
+                    { 4, "Adiddas", "Black", "10" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ClothingID", "Description", "name", "price", "status" },
+                values: new object[,]
+                {
+                    { 2, "Leather shoe with antistatic know ", "Ecco Leather Shoe", 800, "Instock" },
+                    { 3, "Running Shoe with special Gel and antiShock Absorber", "Adiddas A2 Running", 1000, "NotInstock" },
+                    { 4, "Running Shoe with special Gel", "Asics - new Sensation", 2000, "Instock" }
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -98,10 +119,10 @@ namespace Datalayer.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Po");
+                name: "Prodinfo");
 
             migrationBuilder.DropTable(
-                name: "Prodinfo");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "shopbaskets");
