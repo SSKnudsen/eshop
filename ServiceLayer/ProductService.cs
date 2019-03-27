@@ -50,7 +50,7 @@ namespace ServiceLayer
         
         public Products GetProductById(int Id)
         {
-            return _ctx.Products.Find(Id);
+            return _ctx.Products.Find(2);
         }
 
         public IQueryable<Products> GetProducts()
