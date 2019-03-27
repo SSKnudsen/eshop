@@ -47,11 +47,7 @@ namespace ServiceLayer
         }
 
 
-        public IQueryable<Orders> GetOrdersByname(string name)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public Orders GetOrderById(int Id)
         {
             return _ctx.Orders.Find(Id);

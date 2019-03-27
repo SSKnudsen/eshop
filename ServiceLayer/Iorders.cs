@@ -10,7 +10,7 @@ namespace ServiceLayer
     {
 
         IQueryable<Orders> GetOrders();
-        IQueryable<Orders> GetOrdersByname(string name);
+        
         Orders GetOrderById(int Id);
         Orders Update(Orders updateOrders);
         Orders Add(Orders P);

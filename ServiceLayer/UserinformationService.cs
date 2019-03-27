@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datalayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,24 +9,44 @@ namespace ServiceLayer
 {
     public class UserinformationService : Iuserinfomation
     {
+
+        private readonly EfstoreContext _ctx;
+
+        public UserinformationService(EfstoreContext ctx)
+        {
+            _ctx.Database.EnsureCreated();
+            _ctx = ctx;
+
+        }
+                          
+
+
         public Userinformation Add(Userinformation P)
         {
-            throw new NotImplementedException();
+            _ctx.userinf.Add(P);
+            return P;
+
         }
 
         public int Commit()
         {
-            throw new NotImplementedException();
+            _ctx.SaveChanges();
+            return 0;
         }
 
         public Userinformation Delete(int id)
         {
-            throw new NotImplementedException();
+            var m = GetuserinfById(id);
+            if (m != null)
+            {
+                _ctx.userinf.Remove(m);
+            }
+            return m;
         }
 
-        public Userinformation GetProductById(int Id)
+        public Userinformation GetuserinfById(int Id)
         {
-            throw new NotImplementedException();
+            return _ctx.userinf.Find(Id);
         }
 
         public IQueryable<Userinformation> GetProductsByname(string name)
@@ -35,12 +56,14 @@ namespace ServiceLayer
 
         public IQueryable<Userinformation> GetUserinformation()
         {
-            throw new NotImplementedException();
+            return _ctx.userinf;
         }
 
-        public Userinformation Update(Userinformation updateProducts)
+        public Userinformation Update(Userinformation updateuserinf)
         {
-            throw new NotImplementedException();
+            _ctx.userinf.Update(updateuserinf);
+
+            return updateuserinf;
         }
     }
 }

@@ -11,8 +11,8 @@ namespace ServiceLayer
 
 
         IQueryable<Userinformation> GetUserinformation();
-        IQueryable<Userinformation> GetProductsByname(string name);
-        Userinformation GetProductById(int Id);
+        
+        Userinformation GetuserinfById(int Id);
         Userinformation Update(Userinformation updateProducts);
         Userinformation Add(Userinformation P);
         Userinformation Delete(int id);

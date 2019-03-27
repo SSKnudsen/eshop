@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datalayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,54 +9,71 @@ namespace ServiceLayer
 {
     public class ShopbasketService : IShopBasket
     {
+
+        private readonly EfstoreContext _ctx;
+
+        public ShopbasketService(EfstoreContext ctx)
+        {
+            _ctx.Database.EnsureCreated();
+            _ctx = ctx;
+
+        }
+
+
         public Shopbasket Add(Shopbasket P)
         {
-            throw new NotImplementedException();
+            _ctx.shopbaskets.Add(P);
+            return P;
         }
 
         public int Commit()
         {
-            throw new NotImplementedException();
+            _ctx.SaveChanges();
+            return 0;
         }
 
         public Shopbasket Delete(int id)
         {
-            throw new NotImplementedException();
+            var m = GetOrderById(id);
+            if (m != null)
+            {
+                _ctx.shopbaskets.Remove(m);
+            }
+            return m;
         }
 
         public IQueryable<Shopbasket> GetOrders()
         {
-            throw new NotImplementedException();
+            return _ctx.shopbaskets;
+
         }
 
-        public IQueryable<Shopbasket> GetOrdersByname(string name)
+
+
+        public Shopbasket GetOrderById(int Id)
         {
-            throw new NotImplementedException();
+            return _ctx.shopbaskets.Find(Id);
         }
 
-        public Shopbasket GetOrderstById(int Id)
+        public Shopbasket Update(Shopbasket updateShopbasket)
         {
-            throw new NotImplementedException();
+            _ctx.shopbaskets.Update(updateShopbasket);
+
+            return updateShopbasket;
         }
 
         public IQueryable<Shopbasket> GetShopBasket()
         {
-            throw new NotImplementedException();
+            return _ctx.shopbaskets;
         }
+        
 
         public Shopbasket GetShopBasketById(int Id)
         {
-            throw new NotImplementedException();
-        }
 
-        public IQueryable<Shopbasket> GetShopBasketByname(string name)
-        {
-            throw new NotImplementedException();
-        }
+            return _ctx.shopbaskets.Find(Id);
+           
 
-        public Shopbasket Update(Shopbasket updateOrders)
-        {
-            throw new NotImplementedException();
         }
     }
 }

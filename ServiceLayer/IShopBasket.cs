@@ -11,7 +11,6 @@ namespace ServiceLayer
 
 
         IQueryable<Shopbasket> GetShopBasket();
-        IQueryable<Shopbasket> GetShopBasketByname(string name);
         Shopbasket GetShopBasketById(int Id);
         Shopbasket Update(Shopbasket updateShopBasket);
         Shopbasket Add(Shopbasket P);
