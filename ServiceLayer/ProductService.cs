@@ -11,11 +11,11 @@ namespace ServiceLayer
     public class ProductService : Iproduct
     {
 
-        private readonly EfstoreContext _ctx;
+       private readonly EfstoreContext _ctx;
 
         public ProductService(EfstoreContext ctx)
         {
-            _ctx.Database.EnsureCreated();
+             ctx.Database.EnsureCreated();
             _ctx = ctx;
 
         }
@@ -27,6 +27,7 @@ namespace ServiceLayer
         public Products Add(Products P)
         {
             _ctx.Products.Add(P);
+            Commit();
             return P;
         }
 
@@ -38,19 +39,30 @@ namespace ServiceLayer
 
         public Products Delete(int id)
         {
-            var m = GetProductById(id);
-            if (m != null)
-            {
-                _ctx.Products.Remove(m);
-            }
-            return m;
+            throw new NotImplementedException();
         }
 
-        
-        
-        public Products GetProductById(int Id)
+        //public Products Delete(int id)
+        //{
+        //    var m = GetProductById(id);
+        //    if (m != null)
+        //    {
+        //        _ctx.Products.Remove(m);
+        //    }
+        //    return m;
+        //}
+
+
+
+        public List<Products> GetProductById(int Id)
         {
-            return _ctx.Products.Find(2);
+            var context = new EfstoreContext();
+            var studentsWithSameName = context.Products
+                                              .Where(s => s.ClothingID == Id)
+                                              .ToList();
+            List<Products> pd = studentsWithSameName.ToList<Products>();
+            return pd;
+
         }
 
         public IQueryable<Products> GetProducts()
@@ -68,6 +80,11 @@ namespace ServiceLayer
             _ctx.Products.Update(updateProducts);
 
             return updateProducts;
+        }
+
+        Products Iproduct.GetProductById(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

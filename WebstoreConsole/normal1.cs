@@ -14,23 +14,23 @@ namespace WebstoreConsole
 
         private readonly EfstoreContext _ctx;
 
-        public ProductService prod1;
+        
 
         public List<Products> one()
         {
+            EfstoreContext ctx = new EfstoreContext();
+            ProductService prod1  = new ProductService(ctx);
+        List<Products> ps =       prod1.GetProductById(2);
 
 
-            Products ps = new Products();
 
-           //IEnumerable<Products> p = prod1.GetProducts();
+            //var context = new EfstoreContext();
+            //var studentsWithSameName = context.Products
+            //                                  .Where(s => s.ClothingID == 2)
+            //                                  .ToList();
 
-            var context = new EfstoreContext();
-            var studentsWithSameName = context.Products
-                                              .Where(s => s.ClothingID == 2)
-                                              .ToList();
-
-            List<Products> pd = studentsWithSameName.ToList<Products>();
-            return pd;
+            //List<Products> pd = studentsWithSameName.ToList<Products>();
+            return ps;
 
         }
     }

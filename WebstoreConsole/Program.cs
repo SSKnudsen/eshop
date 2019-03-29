@@ -12,20 +12,17 @@ namespace WebstoreConsole
     class Program
     {
         private readonly EfstoreContext _ctx;
-
+        
         static void Main(string[] args)
         {
 
+            normal1 n = new normal1();
+             List<Products>  d = n.one();
 
 
 
-            normal1 n1 = new normal1();
-            List<Products> i = n1.one();
-
-            Console.WriteLine(i);
 
 
-            
         }
     }
 }

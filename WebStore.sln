@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Datalayer", "Datalayer\Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{0C0B62AB-2F79-4FD3-834A-450DA7E24088}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Databasetest", "Databasetest\Databasetest.csproj", "{59AF88EC-31FE-469D-9B02-97E954E0B040}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Databasetest", "Databasetest\Databasetest.csproj", "{59AF88EC-31FE-469D-9B02-97E954E0B040}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
