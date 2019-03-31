@@ -1,0 +1,49 @@
+﻿@page
+@model Web1.Page1Model
+@{
+    ViewData["Title"] = "Order";
+}
+
+<h1>Køb</h1>
+
+
+
+<table style="width:100%;">
+    <tr>
+       
+        
+        <td>Navn</td>
+        
+        <td>Beskrivelse</td>
+        
+        <td>Pris</td>
+        
+        <td>Er varen på lager</td>
+        
+    </tr>
+
+    <tr>
+        
+            <td>@ViewData["name "]</td>
+            <td>@ViewData["Description "]</td>
+            <td>@ViewData["Price "]</td>
+            <td>@ViewData["status"]</td>
+
+        
+        <td>
+            <input id="Button1" type="Button" value="Se udvidet info" />
+            <input id="Button1" type="Button" value="Køb Vare" />
+
+        </td>
+    </tr>
+
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+
+
+

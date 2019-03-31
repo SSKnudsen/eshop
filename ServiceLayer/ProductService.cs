@@ -57,22 +57,38 @@ namespace ServiceLayer
         public List<Products> GetProductById(int Id)
         {
             var context = new EfstoreContext();
-            var studentsWithSameName = context.Products
+            var SelectProduct = context.Products
                                               .Where(s => s.ClothingID == Id)
                                               .ToList();
-            List<Products> pd = studentsWithSameName.ToList<Products>();
+            List<Products> pd = SelectProduct.ToList<Products>();
             return pd;
 
         }
 
-        public IQueryable<Products> GetProducts()
+        public List<Products> GetProducts()
         {
-            return _ctx.Products;
+            var context = new EfstoreContext();
+            var SelectProduct = context.Products
+                                              .Select(x => x)
+                                              .ToList();
+            List<Products> pd = SelectProduct.ToList<Products>();
+            return pd;
+
+
+
+
+            
         }
 
-        public IQueryable<Products> GetProductsByname(string name)
+        public List<Products> GetProductsByname(string name)
         {
-            throw new NotImplementedException();
+            var context = new EfstoreContext();
+            var SelectProduct = context.Products
+                                              .Where(s => s.name == name)
+                                              .ToList();
+            List<Products> pd = SelectProduct.ToList<Products>();
+            return pd;
+
         }
 
         public Products Update(Products updateProducts)
@@ -83,6 +99,16 @@ namespace ServiceLayer
         }
 
         Products Iproduct.GetProductById(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        IQueryable<Products> Iproduct.GetProducts()
+        {
+            throw new NotImplementedException();
+        }
+
+        IQueryable<Products> Iproduct.GetProductsByname(string name)
         {
             throw new NotImplementedException();
         }
