@@ -20,7 +20,26 @@ namespace WebstoreConsole
         {
             EfstoreContext ctx = new EfstoreContext();
             ProductService prod1  = new ProductService(ctx);
-        List<Products> ps =       prod1.GetProductById(2);
+
+            UserinformationService ser1 = new UserinformationService(ctx);
+
+
+            Userinformation sb = new Userinformation();
+            //sb.id = 1;
+            sb.fullname = "Hansen";
+            sb.Address = "Hansenvej 1";
+            sb.dateofbirth = DateTime.Now;
+            sb.CountryCode = 1100;
+            sb.city = "hansenberg";
+            sb.gender = "M";
+            sb.paymentO = "MasterCard";
+
+            
+            ser1.Add(sb);
+
+
+
+            List<Products> ps =       prod1.GetProductById(2);
 
 
 

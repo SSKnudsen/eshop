@@ -14,7 +14,7 @@ namespace ServiceLayer
 
         public ShopbasketService(EfstoreContext ctx)
         {
-            _ctx.Database.EnsureCreated();
+            ctx.Database.EnsureCreated();
             _ctx = ctx;
 
         }
@@ -23,6 +23,7 @@ namespace ServiceLayer
         public Shopbasket Add(Shopbasket P)
         {
             _ctx.shopbaskets.Add(P);
+            Commit();
             return P;
         }
 
@@ -42,12 +43,7 @@ namespace ServiceLayer
             return m;
         }
 
-        public IQueryable<Shopbasket> GetOrders()
-        {
-            return _ctx.shopbaskets;
-
-        }
-
+        
 
 
         public Shopbasket GetOrderById(int Id)
@@ -62,19 +58,47 @@ namespace ServiceLayer
             return updateShopbasket;
         }
 
-        public IQueryable<Shopbasket> GetShopBasket()
+        public List<Shopbasket> GetShopBasket()
         {
-            return _ctx.shopbaskets;
+            var context = new EfstoreContext();
+            var SelectProduct = context.shopbaskets
+                                              .Select(x => x)
+                                              .ToList();
+            List<Shopbasket> pd = SelectProduct.ToList<Shopbasket>();
+            return pd;
+
+
+
+         //   return _ctx.shopbaskets;
         }
         
 
-        public Shopbasket GetShopBasketById(int Id)
+        public List<Shopbasket> GetShopBasketById(int Id)
         {
-
-            return _ctx.shopbaskets.Find(Id);
-           
-
+            var context = new EfstoreContext();
+            var SelectShopBasket = context.shopbaskets                
+                                                .Where(s => s.ClothingID == Id)
+                                               .ToList();
+              List<Shopbasket> pd = SelectShopBasket.ToList<Shopbasket>();
+            return pd;
+            
         }
+
+        
+
+        Shopbasket IShopBasket.GetShopBasketById(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        //private List<Shopbasket> GetProdBasket(int id)
+        //{
+
+        //}
+
+
     }
 }
     

@@ -10,8 +10,7 @@ namespace ServiceLayer
     {
 
 
-        IQueryable<Userinformation> GetUserinformation();
-        
+        List<Userinformation> GetUserinformation();
         Userinformation GetuserinfById(int Id);
         Userinformation Update(Userinformation updateProducts);
         Userinformation Add(Userinformation P);

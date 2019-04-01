@@ -12,7 +12,7 @@ namespace Datalayer
         public DbSet<Productinfo> Prodinfo { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Shopbasket> shopbaskets { get; set; }
-        public DbSet<Userinformation> userinf { get; set; }
+        public DbSet<Userinformation> userinformtation { get; set; }
 
         public EfstoreContext()
         { }
@@ -62,51 +62,51 @@ namespace Datalayer
                 .HasKey(b => b.id)
                 .HasName("id");
             //Products
-         //   modelBuilder.Entity<Products>().HasData(new { ClothingID = 1, name = "Adiddas A1 Running", Description = "Running Shoe with special Gel", price = 300, status = "Instock" });
+            //   modelBuilder.Entity<Products>().HasData(new { ClothingID = 1, name = "Adiddas A1 Running", Description = "Running Shoe with special Gel", price = 300, status = "Instock" });
             //modelBuilder.Entity<Products>().HasData(new { ClothingID = 2, name = "Ecco Leather Shoe", Description = "Leather shoe with antistatic know ", price = 800, status = "Instock" });
             //modelBuilder.Entity<Products>().HasData(new { ClothingID = 3, name = "Adiddas A2 Running", Description = "Running Shoe with special Gel and antiShock Absorber", price = 1000, status = "NotInstock" });
             //modelBuilder.Entity<Products>().HasData(new { ClothingID = 4, name = "Asics - new Sensation", Description = "Running Shoe with special Gel", price = 2000, status = "Instock" });
 
             //productinfo
-            //modelBuilder.Entity<Userinformation>().HasData(new
-            //{
+            modelBuilder.Entity<Userinformation>().HasData(new
+            {
 
-            //    id = 1,
-            //    fullname = "peter petersen",
-            //    dateofbirth = DateTime.Now,
-            //    Address = "petersvej 1",
-            //    city = "petersborg",
-            //    email = "Peter@gmail.com",
-            //    CountryCode = 7600,
-            //    paymentO = "MasterCard"
+                id = 1,
+                fullname = "peter petersen",
+                dateofbirth = DateTime.Now,
+                Address = "petersvej 1",
+                city = "petersborg",
+                email = "Peter@gmail.com",
+                CountryCode = 7600,
+                paymentO = "MasterCard"
 
-            //});
+            });
 
-            //modelBuilder.Entity<Userinformation>().HasData(new
-            //{
-            //    id = "2",
-            //    fullname = "Anders Andersen",
-            //    dateofbirth = DateTime.Now,
-            //    Address = "AndersVej  1",
-            //    city = "Andersborg",
-            //    CountryCode = 7600,
-            //    email = "anders@gmail.com",
-            //    paymentO = "MasterCard"
+            modelBuilder.Entity<Userinformation>().HasData(new
+            {
+                id = 2,
+                fullname = "Anders Andersen",
+                dateofbirth = DateTime.Now,
+                Address = "AndersVej  1",
+                city = "Andersborg",
+                CountryCode = 7600,
+                email = "anders@gmail.com",
+                paymentO = "MasterCard"
 
-            //});
+            });
 
-            //modelBuilder.Entity<Userinformation>().HasData(new
-            //{
-            //    id = 3,
-            //    fullname = "Kathrine Kristiansen",
-            //    dateofbirth = DateTime.Now,
-            //    Address = "kathrinevej  1",
-            //    city = "kathrinebjerg",
-            //    CountryCode = 7600,
-            //    email = "Kathrine@gmail.com",
-            //    paymentO = "MasterCard"
+            modelBuilder.Entity<Userinformation>().HasData(new
+            {
+                id = 3,
+                fullname = "Kathrine Kristiansen",
+                dateofbirth = DateTime.Now,
+                Address = "kathrinevej  1",
+                city = "kathrinebjerg",
+                CountryCode = 7600,
+                email = "Kathrine@gmail.com",
+                paymentO = "MasterCard"
 
-            //});
+            });
 
 
             //modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 1, Brand =" Adiddas", Color = "Black", size = "10" });

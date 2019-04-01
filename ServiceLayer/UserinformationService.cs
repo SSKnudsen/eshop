@@ -14,7 +14,7 @@ namespace ServiceLayer
 
         public UserinformationService(EfstoreContext ctx)
         {
-            _ctx.Database.EnsureCreated();
+            ctx.Database.EnsureCreated();
             _ctx = ctx;
 
         }
@@ -23,7 +23,8 @@ namespace ServiceLayer
 
         public Userinformation Add(Userinformation P)
         {
-            _ctx.userinf.Add(P);
+            _ctx.userinformtation.Add(P);
+            Commit();
             return P;
 
         }
@@ -36,32 +37,42 @@ namespace ServiceLayer
 
         public Userinformation Delete(int id)
         {
-            var m = GetuserinfById(id);
+            Userinformation m = GetuserinfById(id);
             if (m != null)
             {
-                _ctx.userinf.Remove(m);
+                _ctx.userinformtation.Remove(m);
             }
             return m;
         }
 
         public Userinformation GetuserinfById(int Id)
         {
-            return _ctx.userinf.Find(Id);
-        }
 
-        public IQueryable<Userinformation> GetProductsByname(string name)
-        {
-            throw new NotImplementedException();
+            //var context = new EfstoreContext();
+            //var SelectProduct = context.userinf
+            //                                  .Select(x => x.id = Id)
+            //                                  .ToList();
+            Userinformation pd = new Userinformation();// SelectProduct.ToList<Userinformation>();
+            return pd;
         }
+        
 
-        public IQueryable<Userinformation> GetUserinformation()
+        public List<Userinformation> GetUserinformation()
         {
-            return _ctx.userinf;
+
+            var context = new EfstoreContext();
+            var SelectProduct = context.userinformtation
+                                              .Select(x => x)
+                                              .ToList();
+            List<Userinformation> pd = SelectProduct.ToList<Userinformation>();
+            return pd;
+
+
         }
 
         public Userinformation Update(Userinformation updateuserinf)
         {
-            _ctx.userinf.Update(updateuserinf);
+            _ctx.userinformtation.Update(updateuserinf);
 
             return updateuserinf;
         }

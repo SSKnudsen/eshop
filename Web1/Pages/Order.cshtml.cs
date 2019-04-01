@@ -46,5 +46,17 @@ namespace Web1
            return pd;
 
         }
+
+        private List<Products> GetProduct(int i)
+        {
+            var context = new EfstoreContext();
+            PS = new ProductService(context);
+            List<Products> pd = PS.GetProductById(i);
+
+            return pd;
+
+        }
+
+
     }
 }
