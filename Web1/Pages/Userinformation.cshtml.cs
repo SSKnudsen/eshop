@@ -24,11 +24,11 @@ namespace Web1.Pages
             {
                 while (products > x)
                 {
-                    //ViewData["ClothingID "] = pr[x].ClothingID;
-                    ViewData["name "] = pr[x].fullname;
+                    ViewData["id "] = p.id;
+                    ViewData["fullname "] = pr[x].fullname;
                     ViewData["Address "] = pr[x].Address;
                     ViewData["city "] = pr[x].city;
-                    ViewData["Gender "] = pr[x].gender;
+                    ViewData["gender "] = pr[x].gender;
                     ViewData["Date"] = pr[x].dateofbirth;
                     ViewData["email "] = pr[x].email;
                     ViewData["Payment"] = pr[x].paymentO;

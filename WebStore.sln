@@ -16,7 +16,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceLayer", "ServiceLaye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Databasetest", "Databasetest\Databasetest.csproj", "{59AF88EC-31FE-469D-9B02-97E954E0B040}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web1", "Web1\Web1.csproj", "{35A3B120-D9DF-410E-8518-7D408B7BD8F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web1", "Web1\Web1.csproj", "{35A3B120-D9DF-410E-8518-7D408B7BD8F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pictures", "Pictures", "{AEF3765B-58C4-4835-BEF9-4405FD11A420}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\Billeder\2-DB3212_01.jpg = ..\..\..\Downloads\Billeder\2-DB3212_01.jpg
+		..\..\..\Downloads\Billeder\2-F36190_01.jpg = ..\..\..\Downloads\Billeder\2-F36190_01.jpg
+		..\..\..\Downloads\Billeder\2-F36191_01.jpg = ..\..\..\Downloads\Billeder\2-F36191_01.jpg
+		..\..\..\Downloads\Billeder\3B-AH7857_401_01.jpg = ..\..\..\Downloads\Billeder\3B-AH7857_401_01.jpg
+		..\..\..\Downloads\Billeder\8-T7J1N_4590_01.jpg = ..\..\..\Downloads\Billeder\8-T7J1N_4590_01.jpg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

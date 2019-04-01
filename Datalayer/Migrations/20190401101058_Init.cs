@@ -92,19 +92,36 @@ namespace Datalayer.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "userinformtation",
-                columns: new[] { "id", "Address", "CountryCode", "city", "dateofbirth", "email", "fullname", "gender", "paymentO" },
-                values: new object[] { 1, "petersvej 1", 7600, "petersborg", new DateTime(2019, 4, 1, 12, 0, 37, 907, DateTimeKind.Local).AddTicks(1970), "Peter@gmail.com", "peter petersen", null, "MasterCard" });
+                table: "Prodinfo",
+                columns: new[] { "productinfoID", "Brand", "Color", "size" },
+                values: new object[,]
+                {
+                    { 1, " Adiddas", "Black", "10" },
+                    { 2, "Adiddas", "White", "11" },
+                    { 3, "Ecco", "Brown", "12" },
+                    { 4, "Adiddas", "Black", "10" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ClothingID", "Description", "name", "price", "status" },
+                values: new object[,]
+                {
+                    { 1, "Running Shoe with special Gel", "Adiddas A1 Running", 300, "Instock" },
+                    { 2, "Leather shoe with antistatic know ", "Ecco Leather Shoe", 800, "Instock" },
+                    { 3, "Running Shoe with special Gel and antiShock Absorber", "Adiddas A2 Running", 1000, "NotInstock" },
+                    { 4, "Running Shoe with special Gel", "Asics - new Sensation", 2000, "Instock" }
+                });
 
             migrationBuilder.InsertData(
                 table: "userinformtation",
                 columns: new[] { "id", "Address", "CountryCode", "city", "dateofbirth", "email", "fullname", "gender", "paymentO" },
-                values: new object[] { 2, "AndersVej  1", 7600, "Andersborg", new DateTime(2019, 4, 1, 12, 0, 37, 909, DateTimeKind.Local).AddTicks(9753), "anders@gmail.com", "Anders Andersen", null, "MasterCard" });
-
-            migrationBuilder.InsertData(
-                table: "userinformtation",
-                columns: new[] { "id", "Address", "CountryCode", "city", "dateofbirth", "email", "fullname", "gender", "paymentO" },
-                values: new object[] { 3, "kathrinevej  1", 7600, "kathrinebjerg", new DateTime(2019, 4, 1, 12, 0, 37, 910, DateTimeKind.Local).AddTicks(1792), "Kathrine@gmail.com", "Kathrine Kristiansen", null, "MasterCard" });
+                values: new object[,]
+                {
+                    { 1, "petersvej 1", 7600, "petersborg", new DateTime(2019, 4, 1, 12, 10, 57, 921, DateTimeKind.Local).AddTicks(6528), "Peter@gmail.com", "peter petersen", null, "MasterCard" },
+                    { 2, "AndersVej  1", 7600, "Andersborg", new DateTime(2019, 4, 1, 12, 10, 57, 924, DateTimeKind.Local).AddTicks(3295), "anders@gmail.com", "Anders Andersen", null, "MasterCard" },
+                    { 3, "kathrinevej  1", 7600, "kathrinebjerg", new DateTime(2019, 4, 1, 12, 10, 57, 924, DateTimeKind.Local).AddTicks(4980), "Kathrine@gmail.com", "Kathrine Kristiansen", null, "MasterCard" }
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

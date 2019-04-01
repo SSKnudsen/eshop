@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datalayer.Migrations
 {
     [DbContext(typeof(EfstoreContext))]
-    [Migration("20190401100038_Init")]
+    [Migration("20190401101058_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,6 +55,36 @@ namespace Datalayer.Migrations
                         .HasName("productinfoID");
 
                     b.ToTable("Prodinfo");
+
+                    b.HasData(
+                        new
+                        {
+                            productinfoID = 1,
+                            Brand = " Adiddas",
+                            Color = "Black",
+                            size = "10"
+                        },
+                        new
+                        {
+                            productinfoID = 2,
+                            Brand = "Adiddas",
+                            Color = "White",
+                            size = "11"
+                        },
+                        new
+                        {
+                            productinfoID = 3,
+                            Brand = "Ecco",
+                            Color = "Brown",
+                            size = "12"
+                        },
+                        new
+                        {
+                            productinfoID = 4,
+                            Brand = "Adiddas",
+                            Color = "Black",
+                            size = "10"
+                        });
                 });
 
             modelBuilder.Entity("WebstoreConsole.Entities.Products", b =>
@@ -75,6 +105,40 @@ namespace Datalayer.Migrations
                         .HasName("ClothingID");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ClothingID = 1,
+                            Description = "Running Shoe with special Gel",
+                            name = "Adiddas A1 Running",
+                            price = 300,
+                            status = "Instock"
+                        },
+                        new
+                        {
+                            ClothingID = 2,
+                            Description = "Leather shoe with antistatic know ",
+                            name = "Ecco Leather Shoe",
+                            price = 800,
+                            status = "Instock"
+                        },
+                        new
+                        {
+                            ClothingID = 3,
+                            Description = "Running Shoe with special Gel and antiShock Absorber",
+                            name = "Adiddas A2 Running",
+                            price = 1000,
+                            status = "NotInstock"
+                        },
+                        new
+                        {
+                            ClothingID = 4,
+                            Description = "Running Shoe with special Gel",
+                            name = "Asics - new Sensation",
+                            price = 2000,
+                            status = "Instock"
+                        });
                 });
 
             modelBuilder.Entity("WebstoreConsole.Entities.Shopbasket", b =>
@@ -133,7 +197,7 @@ namespace Datalayer.Migrations
                             Address = "petersvej 1",
                             CountryCode = 7600,
                             city = "petersborg",
-                            dateofbirth = new DateTime(2019, 4, 1, 12, 0, 37, 907, DateTimeKind.Local).AddTicks(1970),
+                            dateofbirth = new DateTime(2019, 4, 1, 12, 10, 57, 921, DateTimeKind.Local).AddTicks(6528),
                             email = "Peter@gmail.com",
                             fullname = "peter petersen",
                             paymentO = "MasterCard"
@@ -144,7 +208,7 @@ namespace Datalayer.Migrations
                             Address = "AndersVej  1",
                             CountryCode = 7600,
                             city = "Andersborg",
-                            dateofbirth = new DateTime(2019, 4, 1, 12, 0, 37, 909, DateTimeKind.Local).AddTicks(9753),
+                            dateofbirth = new DateTime(2019, 4, 1, 12, 10, 57, 924, DateTimeKind.Local).AddTicks(3295),
                             email = "anders@gmail.com",
                             fullname = "Anders Andersen",
                             paymentO = "MasterCard"
@@ -155,7 +219,7 @@ namespace Datalayer.Migrations
                             Address = "kathrinevej  1",
                             CountryCode = 7600,
                             city = "kathrinebjerg",
-                            dateofbirth = new DateTime(2019, 4, 1, 12, 0, 37, 910, DateTimeKind.Local).AddTicks(1792),
+                            dateofbirth = new DateTime(2019, 4, 1, 12, 10, 57, 924, DateTimeKind.Local).AddTicks(4980),
                             email = "Kathrine@gmail.com",
                             fullname = "Kathrine Kristiansen",
                             paymentO = "MasterCard"

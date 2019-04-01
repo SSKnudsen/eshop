@@ -62,10 +62,10 @@ namespace Datalayer
                 .HasKey(b => b.id)
                 .HasName("id");
             //Products
-            //   modelBuilder.Entity<Products>().HasData(new { ClothingID = 1, name = "Adiddas A1 Running", Description = "Running Shoe with special Gel", price = 300, status = "Instock" });
-            //modelBuilder.Entity<Products>().HasData(new { ClothingID = 2, name = "Ecco Leather Shoe", Description = "Leather shoe with antistatic know ", price = 800, status = "Instock" });
-            //modelBuilder.Entity<Products>().HasData(new { ClothingID = 3, name = "Adiddas A2 Running", Description = "Running Shoe with special Gel and antiShock Absorber", price = 1000, status = "NotInstock" });
-            //modelBuilder.Entity<Products>().HasData(new { ClothingID = 4, name = "Asics - new Sensation", Description = "Running Shoe with special Gel", price = 2000, status = "Instock" });
+            modelBuilder.Entity<Products>().HasData(new { ClothingID = 1, name = "Adiddas A1 Running", Description = "Running Shoe with special Gel", price = 300, status = "Instock" });
+            modelBuilder.Entity<Products>().HasData(new { ClothingID = 2, name = "Ecco Leather Shoe", Description = "Leather shoe with antistatic know ", price = 800, status = "Instock" });
+            modelBuilder.Entity<Products>().HasData(new { ClothingID = 3, name = "Adiddas A2 Running", Description = "Running Shoe with special Gel and antiShock Absorber", price = 1000, status = "NotInstock" });
+            modelBuilder.Entity<Products>().HasData(new { ClothingID = 4, name = "Asics - new Sensation", Description = "Running Shoe with special Gel", price = 2000, status = "Instock" });
 
             //productinfo
             modelBuilder.Entity<Userinformation>().HasData(new
@@ -109,12 +109,12 @@ namespace Datalayer
             });
 
 
-            //modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 1, Brand =" Adiddas", Color = "Black", size = "10" });
-            //modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 2, Brand = "Adiddas", Color = "White", size = "11" });
-            //modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 3, Brand = "Ecco", Color = "Brown", size = "12" });
-            //modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 4, Brand = "Adiddas", Color = "Black", size = "10" });
+            modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 1, Brand = " Adiddas", Color = "Black", size = "10" });
+            modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 2, Brand = "Adiddas", Color = "White", size = "11" });
+            modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 3, Brand = "Ecco", Color = "Brown", size = "12" });
+            modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 4, Brand = "Adiddas", Color = "Black", size = "10" });
 
-
+          
 
 
 

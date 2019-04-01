@@ -5,31 +5,86 @@
 }
 
 <h1>Køb</h1>
+<table style="width:100%;">
+    <tr>
 
 
+        <td>
+            Sorter på mærke:
+            <select id="SorbyBrand">
+                <option>Asics</option>
+                <option>Addidas</option>
+                <option>Reebok</option>
+            </select>
+            </td>
+
+        <td> 
+            Sorter på Farve:
+            <select id="SortbyColor">
+                <option>Sort</option>
+                <option>Rød</option>
+                <option>Grøn</option>
+                <option>Blå</option>
+            </select>
+
+        </td>
+
+        <td>
+            Sorter på Pris:
+            <select id="SortByPrice">
+                <option>50-100</option>
+                <option>200-300</option>
+                <option>400-500</option>
+                <option>600-700</option>
+                <option>800-900</option>
+                <option>900-1000</option>
+                <option>1000< </option>
+            </select>
+            </td>
+        <td>
+            Katogoriser priserne:
+            <select id="SortAsDC">
+                <option>Stigende</option>
+                <option>Faldende</option>
+
+            </select>
+
+
+
+
+
+
+     
+    <tr>
+    </tr>
+
+</table>
+
+
+<hr />
 
 <table style="width:100%;">
     <tr>
-       
-        
+
+
         <td>Navn</td>
-        
+
         <td>Beskrivelse</td>
-        
+
         <td>Pris</td>
-        
+
         <td>Er varen på lager</td>
-        
+
     </tr>
 
     <tr>
-        
-            <td>@ViewData["name "]</td>
-            <td>@ViewData["Description "]</td>
-            <td>@ViewData["Price "]</td>
-            <td>@ViewData["status"]</td>
 
-        
+        <td>@ViewData["name "]</td>
+        <td>@ViewData["Description "]</td>
+        <td>@ViewData["Price "]</td>
+        <td>@ViewData["status"]</td>
+
+
         <td>
             <input id="Button1" type="Button" value="Se udvidet info" />
             <input id="Button1" type="Button" value="Køb Vare" />
@@ -37,11 +92,6 @@
         </td>
     </tr>
 
-    <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-    </tr>
 </table>
 
 
