@@ -1,0 +1,75 @@
+﻿@page
+@model Web1.Pages.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Se Varer uddybet: </h1>
+<hr />
+Basis vareinformation:
+<br />
+<table>
+
+    <tr>
+        <td>Name:<input id="name" type="text" /></td>
+        <td>Description:<input id="Description" type="text" /></td>
+    </tr>
+
+    <tr>
+        <td>Price:<input id="price" type="text" /></td>
+        <td>Test 2:<input id="" type="text" /></td>
+        <td> Status: <input id="status" type="text" /></td>
+    </tr>
+
+
+</table>
+<hr />
+Udvidet vareinformation:
+<br />
+
+
+
+
+
+<tr>
+    <td>Name:<input id="name" type="text" /></td>
+    <td>Description:<input id="Description" type="text" /></td>
+</tr>
+
+<tr>
+    <td>Price:<input id="price" type="text" /></td>
+    <td>Test 2:<input id="" type="text" /></td>
+    <td> Status: <input id="status" type="text" /></td>
+</tr>
+
+
+
+
+
+<hr />
+
+
+
+
+<br />
+<form method="get">
+    <input type="submit" asp-page="./Create" class="btn btn-primary" value="Opret Varer" />
+    <input type="submit" asp-page="./Index" class="btn btn-primary" value="Til Hovedmenuen" />
+</form>
+
+
+
+<div class="col-lg-1">
+    <form asp-page-handler="edit" method="post">
+        <button class="btn btn-default">Rediger</button>
+    </form>
+</div>
+<div class="col-lg-1">
+    <form asp-page-handler="delete" method="post">
+        <button class="btn btn-default">Slet</button>
+    </form>
+</div>
+
+
+
+

@@ -10,11 +10,11 @@ namespace ServiceLayer
     {
 
 
-        List<Userinformation> GetUserinformation();
-        Userinformation GetuserinfById(int Id);
-        Userinformation Update(Userinformation updateProducts);
-        Userinformation Add(Userinformation P);
-        Userinformation Delete(int id);
+        List<userinformation> GetUserinformation();
+        userinformation GetuserinfById(int Id);
+        userinformation Update(userinformation updateProducts);
+        userinformation Add(userinformation P);
+        userinformation Delete(int id);
         int Commit();
 
 

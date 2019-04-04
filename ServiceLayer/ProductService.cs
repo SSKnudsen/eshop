@@ -15,7 +15,7 @@ namespace ServiceLayer
 
         public ProductService(EfstoreContext ctx)
         {
-             ctx.Database.EnsureCreated();
+            ctx.Database.EnsureCreated();
             _ctx = ctx;
 
         }
@@ -54,13 +54,13 @@ namespace ServiceLayer
 
 
 
-        public List<Products> GetProductById(int Id)
+        public IQueryable<Products> GetProductById(int Id)
         {
             var context = new EfstoreContext();
             var SelectProduct = context.Products
                                               .Where(s => s.ClothingID == Id)
                                               .ToList();
-            List<Products> pd = SelectProduct.ToList<Products>();
+            IQueryable<Products> pd = SelectProduct.AsQueryable<Products>();
             return pd;
 
         }

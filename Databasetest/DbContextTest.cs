@@ -40,7 +40,7 @@ namespace Tests
             {
                 
                 Productinfo PI = new Productinfo();
-                PI.productinfoID = 1;
+               // PI.productinfoID = 1;
                 PI.Brand = "Adiddas";
                 PI.Color = "Black";
                 PI.size = "L";
@@ -121,7 +121,7 @@ namespace Tests
             using (var op = new EfstoreContext(options))
             {
 
-                 Userinformation sb = new Userinformation();
+                 userinformation sb = new userinformation();
                 sb.id = 1;
                 sb.fullname = "Hansen";
                 sb.Address = "Hansenvej 1";

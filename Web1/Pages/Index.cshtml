@@ -3,17 +3,125 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Velkommen til Løbeshoppen</h1>
-    <p>Her vil du kunne finde et overblik over alle de sko der er i vores lille webshop. Der vil  komme nye produkter i takt med at vi får nye varer hjem </p>
-    <p>1: Tryk hjem for at vende tilbage til hovedsiden</p> <br />
-    <p>2: Tryk Køb for at gå til siden med muligheder for at købe sko. </p> <br />
-    <p>3: Se Købsoversigten over de varer du lagt i din kurv Tryk på  Køb for at blive henledt til købssiden</p>
+<br />
 
 
 
-    <img class="mySlides w3-animate-top" src="img_01.jpg">
 
-</div>
+<table style="width:100%;">
+    <tr>
+
+        <td>
+
+            Sorter på mærke:
+            <select id="SorbyBrand">
+                <option>Asics</option>
+                <option>Addidas</option>
+                <option>Reebok</option>
+            </select>
+
+        </td>
+
+        <td>
+            Sorter på Farve:
+            <select id="SortbyColor">
+                <option>Sort</option>
+                <option>Rød</option>
+                <option>Grøn</option>
+                <option>Blå</option>
+            </select>
+
+        </td>
+
+        <td>
+            Sorter på Pris:
+            <select id="SortByPrice">
+                <option>50-100</option>
+                <option>200-300</option>
+                <option>400-500</option>
+                <option>600-700</option>
+                <option>800-900</option>
+                <option>900-1000</option>
+                <option>1000< </option>
+            </select>
+        </td>
+        <td>
+            Katogoriser priserne:
+            <select id="SortAsDC">
+                <option>Stigende</option>
+                <option>Faldende</option>
+
+            </select>
+
+
+
+
+
+
+
+    <tr></tr>
+
+</table>
+
+
+
+
+<hr />
+<table>
+    <tr>
+        <td>ID    </td>
+        <td>Name  </td>
+        <td>Description </td>
+        <td>price  </td>
+        <td>Status </td>
+
+    </tr>
+
+    @foreach (var item in Model.prod)
+    {
+        <tr>
+            <td>  @item.ClothingID  </td>
+            <td>  @item.name  </td>
+            <td>  @item.Description  </td>
+            <td>@item.price</td>
+            <td>@item.status</td>
+            <td>
+
+                <form method="get">
+                    <input type="submit" asp-page="./Edit" class="btn btn-primary" value="Se udvidet info" />
+
+
+
+                </form>
+
+
+            </td>
+            <td>
+                <input type="submit" class="btn btn-primary" value="Læg varer i Kurv">
+
+            </td>
+        </tr>
+
+
+    }
+</table>
+
+<hr />
+
+<form method="get">
+    <input type="submit" asp-page="./Create" class="btn btn-primary" value="Opret Varer" />
+</form>
+
+<div asp-validation-summary="All"></div>
+
+
+<hr />
+
+
+
+
+
+
+
+
 

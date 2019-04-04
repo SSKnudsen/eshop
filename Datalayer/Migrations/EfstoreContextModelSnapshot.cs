@@ -161,7 +161,7 @@ namespace Datalayer.Migrations
                     b.ToTable("shopbaskets");
                 });
 
-            modelBuilder.Entity("WebstoreConsole.Entities.Userinformation", b =>
+            modelBuilder.Entity("WebstoreConsole.Entities.userinformation", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -186,7 +186,7 @@ namespace Datalayer.Migrations
                     b.HasKey("id")
                         .HasName("id");
 
-                    b.ToTable("userinformtation");
+                    b.ToTable("userinformation");
 
                     b.HasData(
                         new
@@ -195,7 +195,7 @@ namespace Datalayer.Migrations
                             Address = "petersvej 1",
                             CountryCode = 7600,
                             city = "petersborg",
-                            dateofbirth = new DateTime(2019, 4, 1, 12, 10, 57, 921, DateTimeKind.Local).AddTicks(6528),
+                            dateofbirth = new DateTime(2019, 4, 4, 8, 47, 20, 506, DateTimeKind.Local).AddTicks(9948),
                             email = "Peter@gmail.com",
                             fullname = "peter petersen",
                             paymentO = "MasterCard"
@@ -206,7 +206,7 @@ namespace Datalayer.Migrations
                             Address = "AndersVej  1",
                             CountryCode = 7600,
                             city = "Andersborg",
-                            dateofbirth = new DateTime(2019, 4, 1, 12, 10, 57, 924, DateTimeKind.Local).AddTicks(3295),
+                            dateofbirth = new DateTime(2019, 4, 4, 8, 47, 20, 508, DateTimeKind.Local).AddTicks(9932),
                             email = "anders@gmail.com",
                             fullname = "Anders Andersen",
                             paymentO = "MasterCard"
@@ -217,7 +217,7 @@ namespace Datalayer.Migrations
                             Address = "kathrinevej  1",
                             CountryCode = 7600,
                             city = "kathrinebjerg",
-                            dateofbirth = new DateTime(2019, 4, 1, 12, 10, 57, 924, DateTimeKind.Local).AddTicks(4980),
+                            dateofbirth = new DateTime(2019, 4, 4, 8, 47, 20, 509, DateTimeKind.Local).AddTicks(9921),
                             email = "Kathrine@gmail.com",
                             fullname = "Kathrine Kristiansen",
                             paymentO = "MasterCard"

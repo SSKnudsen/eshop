@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Datalayer.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -72,7 +72,7 @@ namespace Datalayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "userinformtation",
+                name: "userinformation",
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
@@ -114,13 +114,13 @@ namespace Datalayer.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "userinformtation",
+                table: "userinformation",
                 columns: new[] { "id", "Address", "CountryCode", "city", "dateofbirth", "email", "fullname", "gender", "paymentO" },
                 values: new object[,]
                 {
-                    { 1, "petersvej 1", 7600, "petersborg", new DateTime(2019, 4, 1, 12, 10, 57, 921, DateTimeKind.Local).AddTicks(6528), "Peter@gmail.com", "peter petersen", null, "MasterCard" },
-                    { 2, "AndersVej  1", 7600, "Andersborg", new DateTime(2019, 4, 1, 12, 10, 57, 924, DateTimeKind.Local).AddTicks(3295), "anders@gmail.com", "Anders Andersen", null, "MasterCard" },
-                    { 3, "kathrinevej  1", 7600, "kathrinebjerg", new DateTime(2019, 4, 1, 12, 10, 57, 924, DateTimeKind.Local).AddTicks(4980), "Kathrine@gmail.com", "Kathrine Kristiansen", null, "MasterCard" }
+                    { 1, "petersvej 1", 7600, "petersborg", new DateTime(2019, 4, 4, 8, 47, 20, 506, DateTimeKind.Local).AddTicks(9948), "Peter@gmail.com", "peter petersen", null, "MasterCard" },
+                    { 2, "AndersVej  1", 7600, "Andersborg", new DateTime(2019, 4, 4, 8, 47, 20, 508, DateTimeKind.Local).AddTicks(9932), "anders@gmail.com", "Anders Andersen", null, "MasterCard" },
+                    { 3, "kathrinevej  1", 7600, "kathrinebjerg", new DateTime(2019, 4, 4, 8, 47, 20, 509, DateTimeKind.Local).AddTicks(9921), "Kathrine@gmail.com", "Kathrine Kristiansen", null, "MasterCard" }
                 });
         }
 
@@ -139,7 +139,7 @@ namespace Datalayer.Migrations
                 name: "shopbaskets");
 
             migrationBuilder.DropTable(
-                name: "userinformtation");
+                name: "userinformation");
         }
     }
 }

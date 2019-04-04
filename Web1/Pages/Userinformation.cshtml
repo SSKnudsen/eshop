@@ -5,8 +5,8 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Userinformation</h1>
-
+<h1>Brugerinformation:</h1>
+<hr />
 
 
 
@@ -32,16 +32,26 @@
     </tr>
 
     <tr>
-               
-        <td>@ViewData["fullname "]</td>
-        <td>@ViewData["Address "]</td>
-        <td>@ViewData["gender "]</td>
-        <td>@ViewData["city "]</td>
-        <td>@ViewData["email "]</td>
-        <td>@ViewData["payment "]</td>
+        @foreach (var item in Model.Userinf)
+        {
+
+            <td>  @item.fullname  </td>
+            <td>  @item.gender  </td>
+            <td>  @item.city  </td>
+            <td>@item.email</td>
+            <td>@item.paymentO</td>
+        }
 
     </tr>
+
 </table>
 
 
 
+<hr />
+
+
+<form method="get">    
+    <input type="submit" asp-page="./Index" class="btn btn-primary" value="Til Hovedmenuen" />
+</form>
+<hr />

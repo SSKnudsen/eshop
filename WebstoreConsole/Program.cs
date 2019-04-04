@@ -17,7 +17,7 @@ namespace WebstoreConsole
         {
 
             normal1 n = new normal1();
-             List<Products>  d = n.one();
+             userinformation  d = n.one();
 
 
 

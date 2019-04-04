@@ -12,7 +12,7 @@ namespace Datalayer
         public DbSet<Productinfo> Prodinfo { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Shopbasket> shopbaskets { get; set; }
-        public DbSet<Userinformation> userinformtation { get; set; }
+        public DbSet<userinformation> userinformtation { get; set; }
 
         public EfstoreContext()
         { }
@@ -21,6 +21,8 @@ namespace Datalayer
             : base(options)
         { }
 
+        public DbSet<Products> prod { get; set; }
+        public DbSet<userinformation> user { get; set; }
 
         /// <summary>
         /// Kun TIL TEST!
@@ -58,7 +60,7 @@ namespace Datalayer
                 .HasKey(b => b.Checkout_id)
                 .HasName("Checkout_id");
 
-            modelBuilder.Entity<Userinformation>()
+            modelBuilder.Entity<userinformation>()
                 .HasKey(b => b.id)
                 .HasName("id");
             //Products
@@ -68,7 +70,7 @@ namespace Datalayer
             modelBuilder.Entity<Products>().HasData(new { ClothingID = 4, name = "Asics - new Sensation", Description = "Running Shoe with special Gel", price = 2000, status = "Instock" });
 
             //productinfo
-            modelBuilder.Entity<Userinformation>().HasData(new
+            modelBuilder.Entity<userinformation>().HasData(new
             {
 
                 id = 1,
@@ -82,7 +84,7 @@ namespace Datalayer
 
             });
 
-            modelBuilder.Entity<Userinformation>().HasData(new
+            modelBuilder.Entity<userinformation>().HasData(new
             {
                 id = 2,
                 fullname = "Anders Andersen",
@@ -95,7 +97,7 @@ namespace Datalayer
 
             });
 
-            modelBuilder.Entity<Userinformation>().HasData(new
+            modelBuilder.Entity<userinformation>().HasData(new
             {
                 id = 3,
                 fullname = "Kathrine Kristiansen",

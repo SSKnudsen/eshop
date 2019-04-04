@@ -6,6 +6,19 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
+#rcorners2 {
+    border-radius: 25px;
+    border: 2px solid #000000;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+}
+
+
+
+
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */

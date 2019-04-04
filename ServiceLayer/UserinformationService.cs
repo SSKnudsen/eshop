@@ -21,7 +21,7 @@ namespace ServiceLayer
                           
 
 
-        public Userinformation Add(Userinformation P)
+        public userinformation Add(userinformation P)
         {
             _ctx.userinformtation.Add(P);
             Commit();
@@ -35,9 +35,9 @@ namespace ServiceLayer
             return 0;
         }
 
-        public Userinformation Delete(int id)
+        public userinformation Delete(int id)
         {
-            Userinformation m = GetuserinfById(id);
+            userinformation m = GetuserinfById(id);
             if (m != null)
             {
                 _ctx.userinformtation.Remove(m);
@@ -45,32 +45,31 @@ namespace ServiceLayer
             return m;
         }
 
-        public Userinformation GetuserinfById(int Id)
+        public userinformation GetuserinfById(int Id)
         {
 
             //var context = new EfstoreContext();
             //var SelectProduct = context.userinf
             //                                  .Select(x => x.id = Id)
             //                                  .ToList();
-            Userinformation pd = new Userinformation();// SelectProduct.ToList<Userinformation>();
+            userinformation pd = new userinformation();// SelectProduct.ToList<Userinformation>();
             return pd;
         }
         
 
-        public List<Userinformation> GetUserinformation()
+        public List<userinformation> GetUserinformation()
         {
-
             var context = new EfstoreContext();
             var SelectProduct = context.userinformtation
                                               .Select(x => x)
                                               .ToList();
-            List<Userinformation> pd = SelectProduct.ToList<Userinformation>();
+            List<userinformation> pd = SelectProduct.ToList<userinformation>();
             return pd;
 
 
         }
 
-        public Userinformation Update(Userinformation updateuserinf)
+        public userinformation Update(userinformation updateuserinf)
         {
             _ctx.userinformtation.Update(updateuserinf);
 

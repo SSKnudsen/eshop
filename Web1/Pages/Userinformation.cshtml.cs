@@ -12,15 +12,48 @@ namespace Web1.Pages
 {
     public class UserinformationModel : PageModel
     {
+        private readonly EfstoreContext _db;
 
+        public UserinformationModel(EfstoreContext ctx)
+        {
+            //ctx.Database.EnsureCreated();
+            _db = ctx;
+
+        }
+
+
+        [BindProperty]
+        public List<userinformation> Userinf  { get; set; }
         public UserinformationService US;
+
+        [BindProperty(SupportsGet = true)]
+        public Int32 id { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string fullname { get; set; }
+        [BindProperty(SupportsGet = true)]  
+        public DateTime dateofbirth { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string Address { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string gender { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string city { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int CountryCode { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string email { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string paymentO { get; set; }
 
         public void OnGet()
         {
-            List< Userinformation> pr = Getuserinf();
+
+            Userinf = _db.user.ToList();
+
+            List< userinformation> pr = Getuserinf();
             int products = Getuserinf().Count;
             int x = 0;
-            foreach (Userinformation p in pr)
+            foreach (userinformation p in pr)
             {
                 while (products > x)
                 {
@@ -41,21 +74,24 @@ namespace Web1.Pages
         }
 
 
-        private List<Userinformation> Getuserinf()
+        private List<userinformation> Getuserinf()
         {
+          //  _db.user.ToList();
+
+
             var context = new EfstoreContext();
             US = new UserinformationService(context);
-            List<Userinformation> pd = US.GetUserinformation();
+            List<userinformation> pd = US.GetUserinformation();
 
             return pd;
 
         }
 
-        private Userinformation GetUserInfOne(int i)
+        private userinformation GetUserInfOne(int i)
         {
             var context = new EfstoreContext();
             US = new UserinformationService(context);
-            Userinformation pd = US.GetuserinfById(i);
+            userinformation pd = US.GetuserinfById(i);
 
             return pd;
 

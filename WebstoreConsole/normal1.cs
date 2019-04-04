@@ -16,15 +16,13 @@ namespace WebstoreConsole
 
         
 
-        public List<Products> one()
+        public userinformation one()
         {
-            EfstoreContext ctx = new EfstoreContext();
-            ProductService prod1  = new ProductService(ctx);
-
-            UserinformationService ser1 = new UserinformationService(ctx);
+            EfstoreContext efx = new EfstoreContext();
+            UserinformationService ser1 = new UserinformationService(efx);
 
 
-            Userinformation sb = new Userinformation();
+            userinformation sb = new userinformation();
             //sb.id = 1;
             sb.fullname = "Hansen";
             sb.Address = "Hansenvej 1";
@@ -33,13 +31,13 @@ namespace WebstoreConsole
             sb.city = "hansenberg";
             sb.gender = "M";
             sb.paymentO = "MasterCard";
-
-            
             ser1.Add(sb);
 
 
+            return sb;
 
-            List<Products> ps =       prod1.GetProductById(2);
+
+            //IQueryable<Products> ps =       prod1.GetProductById(2);
 
 
 
@@ -49,7 +47,7 @@ namespace WebstoreConsole
             //                                  .ToList();
 
             //List<Products> pd = studentsWithSameName.ToList<Products>();
-            return ps;
+
 
         }
     }

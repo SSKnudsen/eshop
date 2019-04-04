@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebstoreConsole.Entities
 {
-   public class Userinformation
+   public class userinformation
     {
         public Int32 id { get; set; }
         public string fullname { get; set; }
