@@ -2,6 +2,7 @@
 @model Web1.Pages.CreateModel
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Opret varer</h1>
@@ -11,14 +12,14 @@
 Standard Vareinfo:
 <table>
 
+
     <tr>
         <td>Name:<input id="name" type="text" /></td>
-        <td>Description:<input id="Description" type="text" /></td>
+        <td>Beskrivelse af varen:<input id="Description" type="text" /></td>
     </tr>
 
     <tr>
-        <td>Price:<input id="price" type="text" /></td>
-        <td>Test 2:<input id="" type="text" /></td>
+        <td>Pris:<input id="price" type="text" /></td>
         <td> Status: <input id="status" type="text" /></td>
     </tr>
 
@@ -30,15 +31,15 @@ Standard Vareinfo:
 Udvidet Vareinfo:
 <br />
 
+
 <tr>
-    <td>Name:<input id="name" type="text" /></td>
-    <td>Description:<input id="Description" type="text" /></td>
+    <td>Mærke:<input id="name" type="text" /></td>
+    <td>Farve:<input id="Description" type="text" /></td>
 </tr>
 
 <tr>
-    <td>Price:<input id="price" type="text" /></td>
-    <td>Test 2:<input id="" type="text" /></td>
-    <td> Status: <input id="status" type="text" /></td>
+    <td>Størrelse:<input id="price" type="text" /></td>
+
 </tr>
 
 <hr />
@@ -46,9 +47,10 @@ Udvidet Vareinfo:
 
 
 
-<form method="get">
+<form method="post">
     <input type="submit" asp-page="./Create" class="btn btn-primary" value="Opret Varer" />
-    <input type="submit" asp-page="./Index" class="btn btn-primary" value="Til Hovedmenuen" />
+
+<input type="submit" asp-page="./Index" class="btn btn-primary" value="Til Hovedmenuen" />
 </form>
 
 <hr />

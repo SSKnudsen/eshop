@@ -1,0 +1,82 @@
+﻿@page
+@model Web1.Pages.UserinformationModel
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Checkout</h1>
+
+<hr />
+
+
+<div>
+    <form method="get">
+     
+
+            
+            <div class="form-group">
+                <label asp-for="@Model.fullname" class="control-label"> Name:</label>
+                <input asp-for="@Model.fullname" class="form-control" />
+                <span asp-validation-for="@Model.fullname" class="text-danger"></span>
+
+                <input type="submit" />
+
+                <div>
+
+                </div>
+
+
+            </div>
+
+
+     
+
+        
+
+
+
+    </form>
+
+
+
+    
+
+</div>
+        <tr>
+        </tr>
+
+    
+    <br />
+    <table>
+        <tr>
+            <td>By:  <input id="By" type="text" /></td>
+            <td>betalingsmiddel:  <input id="betalingsmiddel" type="text" /></td>
+
+
+
+
+
+        </tr>
+
+
+
+
+
+
+    </table>
+    <br />
+    <table>
+        <tr>
+
+            <td>forsendelse:  <input id="betalingsmiddel" type="text" /></td>
+        </tr>
+    </table>
+    <hr />
+    <form method="get">
+        <input type="submit" asp-page="./End" class="btn btn-primary" value="Betal for varen" />
+   
+   
+        <input type="submit" asp-page="./Index" class="btn btn-primary" value="Tilbage til hovedsiden" />
+    </form>
+<hr />

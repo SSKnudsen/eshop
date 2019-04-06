@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Datalayer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Caching.Memory;
 using ServiceLayer;
 using StackExchange.Profiling;
 using WebstoreConsole.Entities;
@@ -16,12 +18,24 @@ namespace Web1.Pages
     {
         private readonly EfstoreContext _db;
 
-        public IndexModel(EfstoreContext ctx)
+        private readonly IMemoryCache _cache;
+        public IndexModel(EfstoreContext ctx, IMemoryCache cache)
         {
+            _cache = cache;
             //ctx.Database.EnsureCreated();
             _db = ctx;
 
         }
+
+        public string NameSort { get; set; }
+        public string DateSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+
+
+
+
+
 
         [BindProperty]
         public List<Products> prod { get; set; }
@@ -42,34 +56,46 @@ namespace Web1.Pages
         [BindProperty(SupportsGet = true)]
         public string stat { get; set; }
 
-
+        [BindProperty(SupportsGet = true)]
+        public string SorbyBrand { get; set; }
 
         public void onPost()
-        {   
-
-        }
+        {
+                    }
 
         
         public void OnGet()
         {
+           
+
+
+
             prod = _db.prod.ToList();
 
 
+            foreach (Products p in prod) { 
+
+            var cookieOptions = new CookieOptions
+            {
+                Expires = DateTime.Now.AddDays(30)
+            };
+            Response.Cookies.Append("MyCookie", p.name + p.price, cookieOptions);
+
+            }
 
             using (MiniProfiler.Current.Step("InitUser"))
             {
+                string one = "";
+                SorbyBrand = one;
+
+
                 List<Products> pr = GetProducts();
                 int products = GetProducts().Count;
                 
                 foreach (Products p in pr)
                 {
 
-                    //ViewData["ClothingID "] = p.ClothingID;
-                    //ViewData["name "] = p.name;
-                    //ViewData["Description "] = p.Description;
-                    //ViewData["Price "] = p.price;
-                    //ViewData["status"] = p.status;
-
+                   
 
                      id = p.ClothingID;
                      name = p.name;
@@ -91,10 +117,14 @@ namespace Web1.Pages
        
         public List<Products> GetProducts()
         {
+
+            var cacheEntry = DateTime.Now;
+            _cache.Set<DateTime>("Time", cacheEntry);
             var context = new EfstoreContext();
             PS = new ProductService(context);
             List<Products> pd = PS.GetProducts();
-
+            var myEntry = _cache.Get("myKey");
+          //  var myEntry = _cache.Get<DateTime>("myKey");
             return pd;
 
         }

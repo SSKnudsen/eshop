@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Datalayer.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,7 +55,7 @@ namespace Datalayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "shopbaskets",
+                name: "Shopbasket",
                 columns: table => new
                 {
                     Checkout_id = table.Column<int>(nullable: false)
@@ -114,13 +114,24 @@ namespace Datalayer.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Shopbasket",
+                columns: new[] { "Checkout_id", "ClothingID", "Name", "OrderLines", "Product_id", "Quantity" },
+                values: new object[,]
+                {
+                    { 1, 1, "Adiddas A1 Running", "3", 1, 3 },
+                    { 2, 2, "Adiddas A1 Running", "3", 2, 3 },
+                    { 3, 3, "Ecco", "3", 3, 3 },
+                    { 4, 4, "Adiddas A1 Running", "3", 1, 3 }
+                });
+
+            migrationBuilder.InsertData(
                 table: "userinformation",
                 columns: new[] { "id", "Address", "CountryCode", "city", "dateofbirth", "email", "fullname", "gender", "paymentO" },
                 values: new object[,]
                 {
-                    { 1, "petersvej 1", 7600, "petersborg", new DateTime(2019, 4, 4, 8, 47, 20, 506, DateTimeKind.Local).AddTicks(9948), "Peter@gmail.com", "peter petersen", null, "MasterCard" },
-                    { 2, "AndersVej  1", 7600, "Andersborg", new DateTime(2019, 4, 4, 8, 47, 20, 508, DateTimeKind.Local).AddTicks(9932), "anders@gmail.com", "Anders Andersen", null, "MasterCard" },
-                    { 3, "kathrinevej  1", 7600, "kathrinebjerg", new DateTime(2019, 4, 4, 8, 47, 20, 509, DateTimeKind.Local).AddTicks(9921), "Kathrine@gmail.com", "Kathrine Kristiansen", null, "MasterCard" }
+                    { 1, "petersvej 1", 7600, "petersborg", new DateTime(2019, 4, 4, 13, 30, 10, 828, DateTimeKind.Local).AddTicks(891), "Peter@gmail.com", "peter petersen", null, "MasterCard" },
+                    { 2, "AndersVej  1", 7600, "Andersborg", new DateTime(2019, 4, 4, 13, 30, 10, 830, DateTimeKind.Local).AddTicks(9463), "anders@gmail.com", "Anders Andersen", null, "MasterCard" },
+                    { 3, "kathrinevej  1", 7600, "kathrinebjerg", new DateTime(2019, 4, 4, 13, 30, 10, 831, DateTimeKind.Local).AddTicks(984), "Kathrine@gmail.com", "Kathrine Kristiansen", null, "MasterCard" }
                 });
         }
 
@@ -136,7 +147,7 @@ namespace Datalayer.Migrations
                 name: "Products");
 
             migrationBuilder.DropTable(
-                name: "shopbaskets");
+                name: "Shopbasket");
 
             migrationBuilder.DropTable(
                 name: "userinformation");

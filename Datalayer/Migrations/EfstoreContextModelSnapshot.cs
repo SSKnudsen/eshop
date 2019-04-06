@@ -158,7 +158,45 @@ namespace Datalayer.Migrations
                     b.HasKey("Checkout_id")
                         .HasName("Checkout_id");
 
-                    b.ToTable("shopbaskets");
+                    b.ToTable("Shopbasket");
+
+                    b.HasData(
+                        new
+                        {
+                            Checkout_id = 1,
+                            ClothingID = 1,
+                            Name = "Adiddas A1 Running",
+                            OrderLines = "3",
+                            Product_id = 1,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            Checkout_id = 2,
+                            ClothingID = 2,
+                            Name = "Adiddas A1 Running",
+                            OrderLines = "3",
+                            Product_id = 2,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            Checkout_id = 3,
+                            ClothingID = 3,
+                            Name = "Ecco",
+                            OrderLines = "3",
+                            Product_id = 3,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            Checkout_id = 4,
+                            ClothingID = 4,
+                            Name = "Adiddas A1 Running",
+                            OrderLines = "3",
+                            Product_id = 1,
+                            Quantity = 3
+                        });
                 });
 
             modelBuilder.Entity("WebstoreConsole.Entities.userinformation", b =>
@@ -195,7 +233,7 @@ namespace Datalayer.Migrations
                             Address = "petersvej 1",
                             CountryCode = 7600,
                             city = "petersborg",
-                            dateofbirth = new DateTime(2019, 4, 4, 8, 47, 20, 506, DateTimeKind.Local).AddTicks(9948),
+                            dateofbirth = new DateTime(2019, 4, 4, 13, 30, 10, 828, DateTimeKind.Local).AddTicks(891),
                             email = "Peter@gmail.com",
                             fullname = "peter petersen",
                             paymentO = "MasterCard"
@@ -206,7 +244,7 @@ namespace Datalayer.Migrations
                             Address = "AndersVej  1",
                             CountryCode = 7600,
                             city = "Andersborg",
-                            dateofbirth = new DateTime(2019, 4, 4, 8, 47, 20, 508, DateTimeKind.Local).AddTicks(9932),
+                            dateofbirth = new DateTime(2019, 4, 4, 13, 30, 10, 830, DateTimeKind.Local).AddTicks(9463),
                             email = "anders@gmail.com",
                             fullname = "Anders Andersen",
                             paymentO = "MasterCard"
@@ -217,7 +255,7 @@ namespace Datalayer.Migrations
                             Address = "kathrinevej  1",
                             CountryCode = 7600,
                             city = "kathrinebjerg",
-                            dateofbirth = new DateTime(2019, 4, 4, 8, 47, 20, 509, DateTimeKind.Local).AddTicks(9921),
+                            dateofbirth = new DateTime(2019, 4, 4, 13, 30, 10, 831, DateTimeKind.Local).AddTicks(984),
                             email = "Kathrine@gmail.com",
                             fullname = "Kathrine Kristiansen",
                             paymentO = "MasterCard"

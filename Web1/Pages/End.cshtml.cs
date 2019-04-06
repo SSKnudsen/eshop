@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Web1.Pages
+namespace Web1.Pages.Shared
 {
-    public class EditModel : PageModel
+    public class EndModel : PageModel
     {
         public void OnGet()
         {
-            
+
         }
     }
 }

@@ -7,8 +7,58 @@
 
 
 
+<h1>indkøbskurv</h1>
+
+<hr />
+
+<table>
+    <tr>
+
+       
+        <td> navn </td>
+
+        <td> OrderLines</td>
+        <td> Antal</td>
+    </tr>
 
 
 
-<h1>Shopbasket</h1>
+    @foreach (var item in Model.SB)
+    {
+        <tr>
+
+            <td>@item.Name</td>
+            <td>@item.OrderLines</td>
+            <td>@item.Quantity</td>
+            <td>
+
+                <form method="get" class="btn btn-primary">
+                    <a Button asp-route-id="@item.ClothingID" asp-page="./Edit" class="btn btn-primary"  > Rediger</a>
+                </form>
+
+
+
+            </td>
+           
+        </tr>
+    }
+</table>
+
+
+
+<hr />
+
+
+
+
+
+<td>
+    <form method="get">
+        <input type="submit" asp-page="./Index" class="btn btn-primary" value="Til Hovedmenuen" />
+    
+        <input type="submit" asp-page="./Checkout" class="btn btn-primary" value="Checkout" />
+    </form>
+
+<hr />
+
 

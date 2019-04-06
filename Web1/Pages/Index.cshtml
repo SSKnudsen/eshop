@@ -1,7 +1,9 @@
-﻿@page
+﻿@page ""
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+
 }
 <br />
 
@@ -10,9 +12,7 @@
 
 <table style="width:100%;">
     <tr>
-
         <td>
-
             Sorter på mærke:
             <select id="SorbyBrand">
                 <option>Asics</option>
@@ -55,12 +55,6 @@
 
 
 
-
-
-
-
-    <tr></tr>
-
 </table>
 
 
@@ -69,40 +63,41 @@
 <hr />
 <table>
     <tr>
-        <td>ID    </td>
-        <td>Name  </td>
-        <td>Description </td>
-        <td>price  </td>
-        <td>Status </td>
+        
+        <td>Navn  </td>
+        
+        <td>Info om Varen </td>
+        <td>pris  </td>
+        <td>Status. Er varen hjemme? </td>
 
     </tr>
 
     @foreach (var item in Model.prod)
     {
-        <tr>
-            <td>  @item.ClothingID  </td>
-            <td>  @item.name  </td>
-            <td>  @item.Description  </td>
-            <td>@item.price</td>
-            <td>@item.status</td>
-            <td>
+    <tr>
 
-                <form method="get">
-                    <input type="submit" asp-page="./Edit" class="btn btn-primary" value="Se udvidet info" />
+        <td>@item.name  </td>
+        <td>@item.Description  </td>
+        <td>@item.price</td>
+        <td>@item.status</td>
+        
+        <td>
 
-
-
-                </form>
+            <form method="get" class="btn btn-primary">
+                <a Button asp-route-id="@item.ClothingID" asp-page="./Edit" class="btn btn-primary"> Rediger</a>
 
 
-            </td>
-            <td>
-                <input type="submit" class="btn btn-primary" value="Læg varer i Kurv">
-
-            </td>
-        </tr>
+            </form>
 
 
+        </td>
+        <td>
+            <input type="submit" class="btn btn-primary" value="Læg varer i Kurv">
+
+        </td>
+    </tr>
+
+        
     }
 </table>
 
@@ -112,7 +107,6 @@
     <input type="submit" asp-page="./Create" class="btn btn-primary" value="Opret Varer" />
 </form>
 
-<div asp-validation-summary="All"></div>
 
 
 <hr />

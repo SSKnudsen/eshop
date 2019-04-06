@@ -42,18 +42,7 @@ namespace ServiceLayer
             throw new NotImplementedException();
         }
 
-        //public Products Delete(int id)
-        //{
-        //    var m = GetProductById(id);
-        //    if (m != null)
-        //    {
-        //        _ctx.Products.Remove(m);
-        //    }
-        //    return m;
-        //}
-
-
-
+      
         public IQueryable<Products> GetProductById(int Id)
         {
             var context = new EfstoreContext();
@@ -80,6 +69,19 @@ namespace ServiceLayer
             
         }
 
+        public List<Products> GetProductsByDSC()
+        {
+            var context = new EfstoreContext();
+            var SelectProduct = context.Products
+                                              .OrderByDescending(x => x.price)                                              
+                                              .ToList();
+           List<Products> pd = SelectProduct.ToList<Products>();
+            return pd;
+
+        }
+
+                                   
+
         public List<Products> GetProductsByname(string name)
         {
             var context = new EfstoreContext();
@@ -89,6 +91,23 @@ namespace ServiceLayer
             List<Products> pd = SelectProduct.ToList<Products>();
             return pd;
 
+        }
+
+        public List<Products> GetProductsByprice(int price)
+        {
+
+            var context = new EfstoreContext();
+            var SelectProduct = context.Products
+                                              .Where(s => s.price == price)
+                                              .ToList();
+            List<Products> pd = SelectProduct.ToList<Products>();
+            return pd;
+
+        }
+
+        public IQueryable<Products> GetProductsByQuantity(int name)
+        {
+            throw new NotImplementedException();
         }
 
         public Products Update(Products updateProducts)
@@ -104,11 +123,6 @@ namespace ServiceLayer
         }
 
         IQueryable<Products> Iproduct.GetProducts()
-        {
-            throw new NotImplementedException();
-        }
-
-        IQueryable<Products> Iproduct.GetProductsByname(string name)
         {
             throw new NotImplementedException();
         }

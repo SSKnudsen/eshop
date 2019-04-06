@@ -12,11 +12,50 @@ namespace Web1.Pages
 {
     public class ShopbasketModel : PageModel
     {
+        private readonly EfstoreContext _db;
+
+        public ShopbasketModel(EfstoreContext ctx)
+        {
+            //ctx.Database.EnsureCreated();
+            _db = ctx;
+
+        }
+
+
+
+
         public ShopbasketService SS;
+
+        public List<Shopbasket> SB { get; set; }
+        public ProductService PS;
+
+
+        [BindProperty(SupportsGet = true)]
+        public int ClothingID { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int Checkout_id { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string Name { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string OrderLines { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int Product_id { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int Quantity { get; set; }
+
+
 
 
         public void OnGet()
         {
+            SB = _db.Shop.ToList();
+
+
             List<Shopbasket> pr = GetProdBaskets();
             int products = GetProdBaskets().Count;
             int x = 0;

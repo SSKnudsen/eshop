@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Web1.Pages
 {
-    public class EditModel : PageModel
+    public class CheckoutModel : PageModel
     {
         public void OnGet()
         {
-            
+
         }
     }
 }

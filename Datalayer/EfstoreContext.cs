@@ -23,7 +23,7 @@ namespace Datalayer
 
         public DbSet<Products> prod { get; set; }
         public DbSet<userinformation> user { get; set; }
-
+        public DbSet<Shopbasket> Shop { get; set; }
         /// <summary>
         /// Kun TIL TEST!
         /// </summary>
@@ -116,7 +116,15 @@ namespace Datalayer
             modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 3, Brand = "Ecco", Color = "Brown", size = "12" });
             modelBuilder.Entity<Productinfo>().HasData(new { productinfoID = 4, Brand = "Adiddas", Color = "Black", size = "10" });
 
-          
+
+
+            modelBuilder.Entity<Shopbasket>().HasData(new { ClothingID = 1, Checkout_id =  1, Name = "Adiddas A1 Running", size = "10", OrderLines = "3", Product_id = 1, Quantity = 3 });
+            modelBuilder.Entity<Shopbasket>().HasData(new { ClothingID = 2, Checkout_id =  2, Name = "Adiddas A1 Running", size = "10", OrderLines = "3", Product_id = 2, Quantity = 3 });
+            modelBuilder.Entity<Shopbasket>().HasData(new { ClothingID = 3, Checkout_id =  3, Name = "Ecco", size = "10", OrderLines = "3", Product_id = 3, Quantity = 3 });
+            modelBuilder.Entity<Shopbasket>().HasData(new { ClothingID = 4, Checkout_id =  4, Name = "Adiddas A1 Running", size = "10", OrderLines = "3", Product_id = 1, Quantity = 3 });
+            
+
+
 
 
 
