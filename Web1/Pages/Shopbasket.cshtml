@@ -14,15 +14,15 @@
 <table>
     <tr>
 
-       
+
         <td> navn </td>
 
         <td> OrderLines</td>
         <td> Antal</td>
     </tr>
 
-
-
+</table>
+<table>
     @foreach (var item in Model.SB)
     {
         <tr>
@@ -31,34 +31,49 @@
             <td>@item.OrderLines</td>
             <td>@item.Quantity</td>
             <td>
-
-                <form method="get" class="btn btn-primary">
-                    <a Button asp-route-id="@item.ClothingID" asp-page="./Edit" class="btn btn-primary"  > Rediger</a>
-                </form>
-
-
-
-            </td>
-           
+  
+                <div class="col-lg-1">
+                    <form asp-page-handler="Basket" method="post">
+                        <button class="btn btn-primary" asp-route-id="@item.ClothingID">Læg varer i kurv</button>
+                        <button class="btn btn-primary">Læg varer i kurv</button>
+                    </form>
+                </div>
+            
         </tr>
+
+        
     }
+    
 </table>
 
+            @*<a Button asp-route-id="@item.ClothingID" asp-page="./Delete" class="btn btn-primary"> Rediger</a>
+                @*<form asp-page-handler="edit" method="">
+            
+            <button class="btn btn-default">Rediger</button>
+
+        </form>*@
 
 
-<hr />
+
+            @*<form asp-page-handler="Delete" method="post" class="btn btn-primary">*@
+            @*<a Button asp-route-id="@item.ClothingID" asp-page="./Edit" asp-page-handler="test" class="btn btn-primary"> Rediger</a>*@
+
+
+
+
+            <hr />
 
 
 
 
 
-<td>
-    <form method="get">
-        <input type="submit" asp-page="./Index" class="btn btn-primary" value="Til Hovedmenuen" />
-    
-        <input type="submit" asp-page="./Checkout" class="btn btn-primary" value="Checkout" />
-    </form>
+            <td>
+                <form method="get">
+                    <input type="submit" asp-page="./Index" class="btn btn-primary" value="Til Hovedmenuen" />
 
-<hr />
+                    <input type="submit" asp-page="./Checkout" class="btn btn-primary" value="Checkout" />
+                </form>
+
+                <hr />
 
 

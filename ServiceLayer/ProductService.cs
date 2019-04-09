@@ -54,6 +54,19 @@ namespace ServiceLayer
 
         }
 
+
+        public List<Products> GetProductById1(int Id)
+        {
+            var context = new EfstoreContext();
+            var SelectProduct = context.Products
+                                              .Where(s => s.ClothingID == Id)
+                                              .ToList();
+            List<Products> pd = SelectProduct.ToList<Products>();
+            return pd;
+
+        }
+
+
         public List<Products> GetProducts()
         {
             var context = new EfstoreContext();

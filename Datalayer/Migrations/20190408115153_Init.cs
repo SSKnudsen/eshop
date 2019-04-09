@@ -47,6 +47,9 @@ namespace Datalayer.Migrations
                     name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     price = table.Column<int>(nullable: false),
+                    Brand = table.Column<string>(nullable: true),
+                    Color = table.Column<string>(nullable: true),
+                    size = table.Column<string>(nullable: true),
                     status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -77,14 +80,14 @@ namespace Datalayer.Migrations
                 {
                     id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    fullname = table.Column<string>(nullable: true),
+                    fullname = table.Column<string>(maxLength: 50, nullable: false),
                     dateofbirth = table.Column<DateTime>(nullable: false),
-                    Address = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: false),
                     gender = table.Column<string>(nullable: true),
                     city = table.Column<string>(nullable: true),
                     CountryCode = table.Column<int>(nullable: false),
                     email = table.Column<string>(nullable: true),
-                    paymentO = table.Column<string>(nullable: true)
+                    paymentO = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -104,13 +107,13 @@ namespace Datalayer.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ClothingID", "Description", "name", "price", "status" },
+                columns: new[] { "ClothingID", "Brand", "Color", "Description", "name", "price", "size", "status" },
                 values: new object[,]
                 {
-                    { 1, "Running Shoe with special Gel", "Adiddas A1 Running", 300, "Instock" },
-                    { 2, "Leather shoe with antistatic know ", "Ecco Leather Shoe", 800, "Instock" },
-                    { 3, "Running Shoe with special Gel and antiShock Absorber", "Adiddas A2 Running", 1000, "NotInstock" },
-                    { 4, "Running Shoe with special Gel", "Asics - new Sensation", 2000, "Instock" }
+                    { 1, "Adidas", "Black", "Running Shoe with special Gel", "Adiddas A1 Running", 300, null, "Instock" },
+                    { 2, "Ecco", "Black", "Leather shoe with antistatic know ", "Ecco Leather Shoe", 800, null, "Instock" },
+                    { 3, "Adidas", "Blue", "Running Shoe with special Gel and antiShock Absorber", "Adiddas A2 Running", 1000, null, "NotInstock" },
+                    { 4, "Adidas", "Black", "Running Shoe with special Gel", "Asics - new Sensation", 2000, null, "Instock" }
                 });
 
             migrationBuilder.InsertData(
@@ -129,9 +132,9 @@ namespace Datalayer.Migrations
                 columns: new[] { "id", "Address", "CountryCode", "city", "dateofbirth", "email", "fullname", "gender", "paymentO" },
                 values: new object[,]
                 {
-                    { 1, "petersvej 1", 7600, "petersborg", new DateTime(2019, 4, 4, 13, 30, 10, 828, DateTimeKind.Local).AddTicks(891), "Peter@gmail.com", "peter petersen", null, "MasterCard" },
-                    { 2, "AndersVej  1", 7600, "Andersborg", new DateTime(2019, 4, 4, 13, 30, 10, 830, DateTimeKind.Local).AddTicks(9463), "anders@gmail.com", "Anders Andersen", null, "MasterCard" },
-                    { 3, "kathrinevej  1", 7600, "kathrinebjerg", new DateTime(2019, 4, 4, 13, 30, 10, 831, DateTimeKind.Local).AddTicks(984), "Kathrine@gmail.com", "Kathrine Kristiansen", null, "MasterCard" }
+                    { 1, "petersvej 1", 7600, "petersborg", new DateTime(2019, 4, 8, 13, 51, 53, 535, DateTimeKind.Local).AddTicks(9180), "Peter@gmail.com", "peter petersen", null, "MasterCard" },
+                    { 2, "AndersVej  1", 7600, "Andersborg", new DateTime(2019, 4, 8, 13, 51, 53, 538, DateTimeKind.Local).AddTicks(6909), "anders@gmail.com", "Anders Andersen", null, "MasterCard" },
+                    { 3, "kathrinevej  1", 7600, "kathrinebjerg", new DateTime(2019, 4, 8, 13, 51, 53, 538, DateTimeKind.Local).AddTicks(8578), "Kathrine@gmail.com", "Kathrine Kristiansen", null, "MasterCard" }
                 });
         }
 

@@ -91,11 +91,17 @@ namespace Datalayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Brand");
+
+                    b.Property<string>("Color");
+
                     b.Property<string>("Description");
 
                     b.Property<string>("name");
 
                     b.Property<int>("price");
+
+                    b.Property<string>("size");
 
                     b.Property<string>("status");
 
@@ -108,6 +114,8 @@ namespace Datalayer.Migrations
                         new
                         {
                             ClothingID = 1,
+                            Brand = "Adidas",
+                            Color = "Black",
                             Description = "Running Shoe with special Gel",
                             name = "Adiddas A1 Running",
                             price = 300,
@@ -116,6 +124,8 @@ namespace Datalayer.Migrations
                         new
                         {
                             ClothingID = 2,
+                            Brand = "Ecco",
+                            Color = "Black",
                             Description = "Leather shoe with antistatic know ",
                             name = "Ecco Leather Shoe",
                             price = 800,
@@ -124,6 +134,8 @@ namespace Datalayer.Migrations
                         new
                         {
                             ClothingID = 3,
+                            Brand = "Adidas",
+                            Color = "Blue",
                             Description = "Running Shoe with special Gel and antiShock Absorber",
                             name = "Adiddas A2 Running",
                             price = 1000,
@@ -132,6 +144,8 @@ namespace Datalayer.Migrations
                         new
                         {
                             ClothingID = 4,
+                            Brand = "Adidas",
+                            Color = "Black",
                             Description = "Running Shoe with special Gel",
                             name = "Asics - new Sensation",
                             price = 2000,
@@ -205,7 +219,8 @@ namespace Datalayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .IsRequired();
 
                     b.Property<int>("CountryCode");
 
@@ -215,11 +230,14 @@ namespace Datalayer.Migrations
 
                     b.Property<string>("email");
 
-                    b.Property<string>("fullname");
+                    b.Property<string>("fullname")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.Property<string>("gender");
 
-                    b.Property<string>("paymentO");
+                    b.Property<string>("paymentO")
+                        .IsRequired();
 
                     b.HasKey("id")
                         .HasName("id");
@@ -233,7 +251,7 @@ namespace Datalayer.Migrations
                             Address = "petersvej 1",
                             CountryCode = 7600,
                             city = "petersborg",
-                            dateofbirth = new DateTime(2019, 4, 4, 13, 30, 10, 828, DateTimeKind.Local).AddTicks(891),
+                            dateofbirth = new DateTime(2019, 4, 8, 13, 51, 53, 535, DateTimeKind.Local).AddTicks(9180),
                             email = "Peter@gmail.com",
                             fullname = "peter petersen",
                             paymentO = "MasterCard"
@@ -244,7 +262,7 @@ namespace Datalayer.Migrations
                             Address = "AndersVej  1",
                             CountryCode = 7600,
                             city = "Andersborg",
-                            dateofbirth = new DateTime(2019, 4, 4, 13, 30, 10, 830, DateTimeKind.Local).AddTicks(9463),
+                            dateofbirth = new DateTime(2019, 4, 8, 13, 51, 53, 538, DateTimeKind.Local).AddTicks(6909),
                             email = "anders@gmail.com",
                             fullname = "Anders Andersen",
                             paymentO = "MasterCard"
@@ -255,7 +273,7 @@ namespace Datalayer.Migrations
                             Address = "kathrinevej  1",
                             CountryCode = 7600,
                             city = "kathrinebjerg",
-                            dateofbirth = new DateTime(2019, 4, 4, 13, 30, 10, 831, DateTimeKind.Local).AddTicks(984),
+                            dateofbirth = new DateTime(2019, 4, 8, 13, 51, 53, 538, DateTimeKind.Local).AddTicks(8578),
                             email = "Kathrine@gmail.com",
                             fullname = "Kathrine Kristiansen",
                             paymentO = "MasterCard"

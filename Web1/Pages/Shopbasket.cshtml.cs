@@ -25,7 +25,7 @@ namespace Web1.Pages
 
 
         public ShopbasketService SS;
-
+        [BindProperty]
         public List<Shopbasket> SB { get; set; }
         public ProductService PS;
 
@@ -48,11 +48,45 @@ namespace Web1.Pages
         [BindProperty(SupportsGet = true)]
         public int Quantity { get; set; }
 
+        public string Message { get; set; } = "Initial Request";
 
 
 
-        public void OnGet()
+        public void OnPostDelete()
         {
+            Message = "Delete handler fired";
+        }
+        public void OnPostEdit(int id)
+        {
+            Message = "Edit handler fired";
+        }
+
+
+
+        public void OnPost()
+        {
+         Message = "Form Posted";
+        }
+      
+
+        public void OnPostDelete(int ClothingID)
+        {
+            var context = new EfstoreContext();
+            SS = new ShopbasketService(context);
+
+
+            SS.Delete(4);
+        }
+
+
+
+
+
+        public void OnGet(int ClothingID)
+        {
+
+
+
             SB = _db.Shop.ToList();
 
 

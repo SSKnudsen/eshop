@@ -9,20 +9,25 @@
 <hr />
 Basis vareinformation:
 <br />
+
+
+<h2>@ViewData["id"]</h2>
 <table>
 
-    <tr>
-        <td>Name:<input id="name" type="text" /></td>
-        <td>Beskrivelse af varen:<input id="Description" type="text" /></td>
-    </tr>
+    
+        <tr>
+            <td>Name:<input id="name" type="text" /></td>
+            <td>Beskrivelse af varen:<input id="Description" type="text" @ViewData["id"]/></td>
+            
+        
+        </tr>
+    
+        <tr>
+            <td>Pris:<input id="price" type="text" /></td>
+            <td> Status: <input id="status" type="text" /></td>
+        </tr>
 
-    <tr>
-        <td>Pris:<input id="price" type="text" /></td>
-        <td> Status: <input id="status" type="text" /></td>
-    </tr>
-
-
-</table>
+    </table>
 <hr />
 Udvidet vareinformation:
 <br />

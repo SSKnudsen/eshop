@@ -1,5 +1,5 @@
 ﻿@page
-@model Web1.Pages.UserinformationModel
+@model Web1.Pages.CheckoutModel
 @{
     ViewData["Title"] = "Checkout";
     Layout = "~/Pages/Shared/_Layout.cshtml";
@@ -11,30 +11,39 @@
 
 
 <div>
-    <form method="get">
-     
+    <form method="Post">
 
-            
+        <div>
             <div class="form-group">
-                <label asp-for="@Model.fullname" class="control-label"> Name:</label>
-                <input asp-for="@Model.fullname" class="form-control" />
-                <span asp-validation-for="@Model.fullname" class="text-danger"></span>
+                <label asp-for="fullname" class="control-label"> Navn:</label>
+                <input asp-for="fullname" class="form-control" />
+                <span asp-validation-for="fullname" class="text-danger"></span>
 
-                <input type="submit" />
 
-                <div>
+            <label asp-for="Email" class="control-label"> Email:</label>
+            <input asp-for="Email " class="form-control" />
+            <span asp-validation-for="Email " class="text-danger"></span>
 
-                </div>
+
+            <label asp-for="Address" class="control-label"> Adresse:</label>
+            <span asp-validation-for="Address" class="text-danger"></span>
+            <input asp-for="Address" class="form-control" />
+
+
+            <label asp-for="paymentO" class="control-label"> Betalingsmiddel:</label>
+            <span asp-validation-for="paymentO" class="text-danger"></span>
+            <input asp-for="paymentO" class="form-control" />
+
 
 
             </div>
+            <div>
+                <input type="submit" />
+            </div>
 
 
-     
 
-        
-
-
+        </div>
 
     </form>
 
@@ -43,40 +52,11 @@
     
 
 </div>
-        <tr>
-        </tr>
-
-    
-    <br />
-    <table>
-        <tr>
-            <td>By:  <input id="By" type="text" /></td>
-            <td>betalingsmiddel:  <input id="betalingsmiddel" type="text" /></td>
-
-
-
-
-
-        </tr>
-
-
-
-
-
-
-    </table>
-    <br />
-    <table>
-        <tr>
-
-            <td>forsendelse:  <input id="betalingsmiddel" type="text" /></td>
-        </tr>
-    </table>
     <hr />
-    <form method="get">
-        <input type="submit" asp-page="./End" class="btn btn-primary" value="Betal for varen" />
-   
-   
+    <form method="post">
+        <input type="submit"  class="btn btn-primary" value="Betal for varen" />
+        @*asp-page="./End"*@
+
         <input type="submit" asp-page="./Index" class="btn btn-primary" value="Tilbage til hovedsiden" />
     </form>
 <hr />

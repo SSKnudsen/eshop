@@ -10,106 +10,475 @@
 
 
 
-<table style="width:100%;">
-    <tr>
-        <td>
-            Sorter på mærke:
-            <select id="SorbyBrand">
-                <option>Asics</option>
-                <option>Addidas</option>
-                <option>Reebok</option>
-            </select>
-
-        </td>
-
-        <td>
-            Sorter på Farve:
-            <select id="SortbyColor">
-                <option>Sort</option>
-                <option>Rød</option>
-                <option>Grøn</option>
-                <option>Blå</option>
-            </select>
-
-        </td>
-
-        <td>
-            Sorter på Pris:
-            <select id="SortByPrice">
-                <option>50-100</option>
-                <option>200-300</option>
-                <option>400-500</option>
-                <option>600-700</option>
-                <option>800-900</option>
-                <option>900-1000</option>
-                <option>1000< </option>
-            </select>
-        </td>
-        <td>
-            Katogoriser priserne:
-            <select id="SortAsDC">
-                <option>Stigende</option>
-                <option>Faldende</option>
-
-            </select>
-
-
-
-</table>
-
 
 
 
 <hr />
 <table>
     <tr>
-        
-        <td>Navn  </td>
-        
-        <td>Info om Varen </td>
-        <td>pris  </td>
-        <td>Status. Er varen hjemme? </td>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.name)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByDesc"]">@Html.DisplayNameFor(model => model.desc)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.pric)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.stat)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.Brand)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.Size)</a>
+        </th>
+
+
+
+
 
     </tr>
 
     @foreach (var item in Model.prod)
     {
-    <tr>
+        <tr>
 
-        <td>@item.name  </td>
-        <td>@item.Description  </td>
-        <td>@item.price</td>
-        <td>@item.status</td>
-        
-        <td>
-
-            <form method="get" class="btn btn-primary">
-                <a Button asp-route-id="@item.ClothingID" asp-page="./Edit" class="btn btn-primary"> Rediger</a>
+            <td>@item.name  </td>
+            <td>@item.Description  </td>
+            <td>@item.price</td>
+            <td>@item.status</td>
+            <td>@item.Brand</td>
+            <td>@item.Color  </td>
 
 
-            </form>
+
+            <td>
 
 
-        </td>
-        <td>
-            <input type="submit" class="btn btn-primary" value="Læg varer i Kurv">
 
-        </td>
-    </tr>
+                <div class="col-lg-1">
+                    <form asp-page-handler="Basket" method="post">
+                        <button class="btn btn-primary">Læg varer i kurv</button>
+                    </form>
+                </div>
 
-        
+
+
+
+
+        </tr>
+
+
+
     }
 </table>
 
 <hr />
-
 <form method="get">
     <input type="submit" asp-page="./Create" class="btn btn-primary" value="Opret Varer" />
 </form>
 
 
+<hr />
+
+SØGNING på FRITEKST
+<hr />
+
+
+
+
+
+<table>
+    <tr>
+        <td>
+            <form asp-page-handler="Search" method="post">
+                <div class="form-actions no-color">
+                    <p>
+                        Søgning på beskrivelse: <input type="text" name="SearchString" value="@ViewData["Description"] " />
+                        <input type="submit" value="Search" class="btn btn-default" /> |
+                        <a asp-action="Index">tilbage til den forrige liste</a>
+                    </p>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+<hr />
+<table>
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.name)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByDesc"]">@Html.DisplayNameFor(model => model.desc)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.pric)</a>
+        </th>
+
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.Brand)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.Color)</a>
+        </th>
+
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.stat)</a>
+        </th>
+
+
+
+
+
+    </tr>
+    @foreach (var item1 in Model.prod2)
+    {
+        <tr>
+            <td>@item1.name  </td>
+            <td>@item1.Description  </td>
+            <td>@item1.price</td>
+            <td>@item1.Brand</td>
+            <td>@item1.Color  </td>
+
+            <td>@item1.status</td>
+
+        </tr>
+    }
+</table>
 
 <hr />
+
+Sortering Nedadgående(DSC)
+<hr />
+
+<table>
+    <tr>
+        <td>
+            <form asp-page-handler="SearchDSC" method="post">
+                <div class="form-actions no-color">
+                    <p>
+  
+                        <input type="submit" value="Search" class="btn btn-default" /> |
+                        <a asp-action="Index">tilbage til den forrige liste</a>
+                    </p>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+<hr />
+
+<table>
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.name)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByDesc"]">@Html.DisplayNameFor(model => model.desc)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.pric)</a>
+        </th>
+
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.Brand)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.Color)</a>
+        </th>
+
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.stat)</a>
+        </th>
+
+
+
+
+
+    </tr>
+    @foreach (var item1 in Model.prod2)
+    {
+        <tr>
+            <td>@item1.name  </td>
+            <td>@item1.Description  </td>
+            <td>@item1.price</td>
+            <td>@item1.Brand</td>
+            <td>@item1.Color  </td>
+
+            <td>@item1.status</td>
+
+        </tr>
+    }
+</table>
+
+<hr />
+
+Sortering Nedadgående(ASC)
+<hr />
+
+<table>
+    <tr>
+        <td>
+            <form asp-page-handler="SearchASC" method="post">
+                <div class="form-actions no-color">
+                    <p>
+                       
+                        <input type="submit" value="Search" class="btn btn-default" /> |
+                        <a asp-action="Index">tilbage til den forrige liste</a>
+                    </p>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+<hr />
+<table>
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.name)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByDesc"]">@Html.DisplayNameFor(model => model.desc)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.pric)</a>
+        </th>
+
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.Brand)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.Color)</a>
+        </th>
+
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.stat)</a>
+        </th>
+
+
+
+
+
+    </tr>
+    @foreach (var item1 in Model.prod2)
+    {
+        <tr>
+            <td>@item1.name  </td>
+            <td>@item1.Description  </td>
+            <td>@item1.price</td>
+            <td>@item1.Brand</td>
+            <td>@item1.Color  </td>
+
+            <td>@item1.status</td>
+
+        </tr>
+    }
+</table>
+
+<hr />
+
+
+<table>
+    <tr>
+        <td>
+            <form asp-page-handler="SearchDSC" method="post">
+                <div class="form-actions no-color">
+                    <p>
+                        Søgning på beskrivelse: <input type="text" name="SearchString" value="@ViewData["Description"] " />
+                        <input type="submit" value="Search" class="btn btn-default" /> |
+                        <a asp-action="Index">tilbage til den forrige liste</a>
+                    </p>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<hr />
+
+        Sortering Gruppering.
+<hr />
+
+<table>
+    <tr>
+        <td>
+            <form asp-page-handler="SearchGroup" method="post">
+                <div class="form-actions no-color">
+                    <p>
+                        <input type="submit" value="Search" class="btn btn-default" /> |
+                        <a asp-action="Index">tilbage til den forrige liste</a>
+                    </p>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<hr />
+
+
+<table>
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.name)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByDesc"]">@Html.DisplayNameFor(model => model.desc)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.pric)</a>
+        </th>
+
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.Brand)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.Color)</a>
+        </th>
+
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.stat)</a>
+        </th>
+
+
+
+
+
+    </tr>
+    @foreach (var item1 in Model.prod2)
+    {
+        <tr>
+            <td>@item1.name  </td>
+            <td>@item1.Description  </td>
+            <td>@item1.price</td>
+            <td>@item1.Brand</td>
+            <td>@item1.Color  </td>
+
+            <td>@item1.status</td>
+
+        </tr>
+    }
+</table>
+
+
+
+
+
+
+
+
+
+
+<hr />
+
+    Søgning på Brand:
+
+<hr />
+
+
+<table>
+    <tr>
+        <td>
+            <form asp-page-handler="SearchBrand" method="post">
+                <div class="form-actions no-color">
+                    <p>
+                        Søgning på beskrivelse: <input type="text" name="SearchString" value="@ViewData["Description"] " />
+                        <input type="submit" value="Search" class="btn btn-default" /> |
+                        <a asp-action="Index">tilbage til den forrige liste</a>
+                    </p>
+                </div>
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+
+
+<table>
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.name)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByDesc"]">@Html.DisplayNameFor(model => model.desc)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.pric)</a>
+        </th>
+
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortByPrice"]">@Html.DisplayNameFor(model => model.Brand)</a>
+        </th>
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.Color)</a>
+        </th>
+
+
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["SortBySTAT"]">@Html.DisplayNameFor(model => model.stat)</a>
+        </th>
+
+
+
+
+
+    </tr>
+    @foreach (var item1 in Model.prod2)
+    {
+        <tr>
+            <td>@item1.name  </td>
+            <td>@item1.Description  </td>
+            <td>@item1.price</td>
+            <td>@item1.Brand</td>
+            <td>@item1.Color  </td>
+
+            <td>@item1.status</td>
+
+        </tr>
+    }
+</table>
+
+<hr />
+
+
+
+
+
+
+
 
 
 

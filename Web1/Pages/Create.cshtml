@@ -14,45 +14,53 @@ Standard Vareinfo:
 
 
     <tr>
-        <td>Name:<input id="name" type="text" /></td>
-        <td>Beskrivelse af varen:<input id="Description" type="text" /></td>
+        <td>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"> Navn:</label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+                <label asp-for="desc" class="control-label"> Beskrivelse:</label>
+                <span asp-validation-for="desc" class="text-danger"></span>
+                <input asp-for="desc" class="form-control" />
+
+                <label asp-for="pric" class="control-label"> Pris:</label>
+                <span asp-validation-for="pric" class="text-danger"></span>
+                <input asp-for="pric" class="form-control" />
+                <label asp-for="stat" class="control-label"> Status:</label>
+                <span asp-validation-for="stat" class="text-danger"></span>
+                <input asp-for="stat" class="form-control" />
+            </div>
+        </td>
+
+
+
+
+
+
+
     </tr>
-
-    <tr>
-        <td>Pris:<input id="price" type="text" /></td>
-        <td> Status: <input id="status" type="text" /></td>
-    </tr>
-
-    <tr></tr>
-
 
 </table>
 <hr />
 Udvidet Vareinfo:
 <br />
 
-
-<tr>
-    <td>Mærke:<input id="name" type="text" /></td>
-    <td>Farve:<input id="Description" type="text" /></td>
-</tr>
-
-<tr>
-    <td>Størrelse:<input id="price" type="text" /></td>
-
-</tr>
-
-<hr />
+    <hr />
 
 
+    <div class="col-lg-1">
+        <form asp-page-handler="view" method="post">
+            <button class="btn btn-primary">Create</button>
+        </form>
+    </div>
 
 
-<form method="post">
-    <input type="submit" asp-page="./Create" class="btn btn-primary" value="Opret Varer" />
+    @*<form method="post">
+            <input type="submit" asp-page="./Create" class="btn btn-primary" value="Opret Varer" />
 
-<input type="submit" asp-page="./Index" class="btn btn-primary" value="Til Hovedmenuen" />
-</form>
+            <input type="submit" asp-page="./Index" class="btn btn-primary" value="Til Hovedmenuen" />
+        </form>*@
 
-<hr />
+    <hr />
 
 

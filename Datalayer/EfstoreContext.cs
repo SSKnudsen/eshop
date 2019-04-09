@@ -63,11 +63,11 @@ namespace Datalayer
             modelBuilder.Entity<userinformation>()
                 .HasKey(b => b.id)
                 .HasName("id");
-            //Products
-            modelBuilder.Entity<Products>().HasData(new { ClothingID = 1, name = "Adiddas A1 Running", Description = "Running Shoe with special Gel", price = 300, status = "Instock" });
-            modelBuilder.Entity<Products>().HasData(new { ClothingID = 2, name = "Ecco Leather Shoe", Description = "Leather shoe with antistatic know ", price = 800, status = "Instock" });
-            modelBuilder.Entity<Products>().HasData(new { ClothingID = 3, name = "Adiddas A2 Running", Description = "Running Shoe with special Gel and antiShock Absorber", price = 1000, status = "NotInstock" });
-            modelBuilder.Entity<Products>().HasData(new { ClothingID = 4, name = "Asics - new Sensation", Description = "Running Shoe with special Gel", price = 2000, status = "Instock" });
+            ////Products
+            modelBuilder.Entity<Products>().HasData(new { ClothingID = 1, name = "Adiddas A1 Running", Description = "Running Shoe with special Gel", price = 300, status = "Instock", Brand="Adidas", Color="Black", Size="43" });
+            modelBuilder.Entity<Products>().HasData(new { ClothingID = 2, name = "Ecco Leather Shoe", Description = "Leather shoe with antistatic know ", price = 800, status = "Instock", Brand = "Ecco", Color = "Black", Size = "43" });
+            modelBuilder.Entity<Products>().HasData(new { ClothingID = 3, name = "Adiddas A2 Running", Description = "Running Shoe with special Gel and antiShock Absorber", Brand = "Adidas", Color = "Blue", Size = "43", price = 1000, status = "NotInstock" });
+            modelBuilder.Entity<Products>().HasData(new { ClothingID = 4, name = "Asics - new Sensation", Description = "Running Shoe with special Gel", price = 2000, status = "Instock", Brand = "Adidas", Color = "Black", Size = "43" });
 
             //productinfo
             modelBuilder.Entity<userinformation>().HasData(new

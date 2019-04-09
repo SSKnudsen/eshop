@@ -35,7 +35,7 @@ namespace ServiceLayer
 
         public Shopbasket Delete(int id)
         {
-            var m = GetOrderById(id);
+            var m = GetOrderById(4);
             if (m != null)
             {
                 _ctx.shopbaskets.Remove(m);
