@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Datalayer.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using WebstoreConsole.Datalayer;
 using WebstoreConsole.Entities;
@@ -21,6 +22,7 @@ namespace Datalayer
             : base(options)
         { }
 
+        public DbSet<TodoItem> TodoItems { get; set; }
         public DbSet<Products> prod { get; set; }
         public DbSet<userinformation> user { get; set; }
         public DbSet<Shopbasket> Shop { get; set; }

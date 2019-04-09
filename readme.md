@@ -1,4 +1,11 @@
 
+
+
+
+Se billede under PICTURES!!!!!
+
+
+
 Krav til Forsiden Færdig
 1. Forsiden viser et antal produkter med et billede af hver, prisen, navn og en knap til at lægge varen i kurven	X	
 

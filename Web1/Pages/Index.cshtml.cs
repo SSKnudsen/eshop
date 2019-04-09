@@ -162,8 +162,6 @@ namespace Web1.Pages
         }
 
 
-
-
         public void OnPostSearchBrand(string SearchString)
         {
             prod = _db.prod.ToList();
@@ -176,7 +174,7 @@ namespace Web1.Pages
                 PS = new ProductService(context);
 
                 List<Products> PS1 = PS.GetProducts();
-
+                 
                 final =  PS1.Where(s => s.Brand.Contains(SearchString)).ToList<Products>();
                 prod2 = final;
             }
